@@ -183,6 +183,73 @@ footer { font-size: 12px; color: var(--muted); display: grid; gap: 4px; border-t
 .state p { margin: 0; color: var(--muted); }
 code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padding: 1px 5px; }
 @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+
+[hidden] { display: none !important; }
+
+/* Chat panel */
+.wrap { padding-bottom: 96px; }
+.ask-btn {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 20;
+  font: 700 16px/1 var(--font-display);
+  font-stretch: 85%;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  background: var(--accent);
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.chat {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 30;
+  height: min(78vh, 640px);
+  background: var(--card);
+  border-top: 1px solid var(--rule);
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  max-width: 640px;
+  margin: 0 auto;
+}
+.chat-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 14px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid var(--rule);
+}
+.chat-head strong { font-family: var(--font-display); font-stretch: 80%; font-size: 20px; }
+.chat-head .icon-btn { font: 600 14px/1 var(--font-body); color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+.chat-log { overflow-y: auto; padding: 14px 16px; display: grid; gap: 10px; align-content: start; }
+.msg { max-width: 88%; padding: 10px 12px; border-radius: 14px; font-size: 15px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.msg.user { justify-self: end; background: var(--accent); color: var(--paper); border-bottom-right-radius: 4px; }
+.msg.bot { justify-self: start; background: var(--accent-soft); color: var(--ink); border-bottom-left-radius: 4px; }
+.msg.note { justify-self: stretch; max-width: none; background: none; color: var(--muted); font-size: 13px; padding: 0; }
+.msg.error { justify-self: stretch; max-width: none; background: var(--protein-soft); color: var(--ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 600 13px/1.2 var(--font-body); color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 10px; cursor: pointer; text-align: left; }
+.chat-form { display: flex; gap: 8px; padding: 10px 16px 12px; border-top: 1px solid var(--rule); }
+.chat-form input, .key-form input {
+  flex: 1; min-width: 0; font: 16px/1.3 var(--font-body); color: var(--ink); background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px;
+}
+.chat-form button, .key-form button {
+  font: 700 15px/1 var(--font-body); color: var(--paper); background: var(--accent);
+  border: 0; border-radius: 12px; padding: 0 16px; cursor: pointer;
+}
+.chat-form button:disabled { opacity: 0.5; cursor: default; }
+.key-form { display: grid; gap: 8px; }
+.key-form .row { display: flex; gap: 8px; }
+.key-form .row button { padding: 12px 16px; }
+.key-form p { margin: 0; font-size: 14px; color: var(--muted); }
+.key-form a { color: var(--accent); }
+.ask-btn:focus-visible, .chip:focus-visible, .chat button:focus-visible, .chat input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 </style>
 </head>
 <body>
@@ -262,6 +329,13 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
     $("#title").textContent = plan.label || plan.date;
     $("#place").textContent = (plan.place || "Nelson Court") + " · Maingain plan";
     const eaten = getEaten(plan.date);
+    // Share the day on screen (and what's been ticked off) with the chat panel (chat.js).
+    window.nelsonCurrent = {
+      plan,
+      eaten: plan.meals.flatMap((m) => m.items.filter((it) => eaten.has(m.meal + ":" + it.id))
+        .map((it) => ({ meal: m.meal, name: it.name, kcal: it.kcal, protein: it.protein }))),
+    };
+    window.dispatchEvent(new Event("nelson:plan"));
     const T = plan.targets || {};
     const main = $("#main");
     main.replaceChildren();
@@ -438,5 +512,6 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
   start();
 })();
 </script>
+<script type="module" src="chat.js"></script>
 </body>
 </html>
