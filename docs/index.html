@@ -239,7 +239,7 @@ input.w-name { flex: 1 1 10em; }
 /* Chart */
 .chart { width: 100%; height: auto; display: block; }
 .chart .grid { stroke: var(--rule); stroke-width: 1; }
-.chart .band { fill: var(--accent-soft); }
+.chart .band { fill: var(--accent); fill-opacity: 0.18; }
 .chart .avg { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
 .chart .pt { fill: var(--muted); }
 .chart .lbl { fill: var(--muted); font: 11px var(--font-body); }
@@ -804,7 +804,7 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
       wc.append(weightChart(pts, start));
       const lg = el("div", "legend");
       const a = el("span", null, "7-day average"); a.style.setProperty("--sw", "var(--accent)");
-      const b = el("span", null, "Target range"); b.style.setProperty("--sw", "var(--accent-soft)");
+      const b = el("span", null, "Target range"); b.style.setProperty("--sw", "color-mix(in srgb, var(--accent) 30%, transparent)");
       const c = el("span", null, "Daily weigh-ins"); c.style.setProperty("--sw", "var(--muted)");
       lg.append(a, b, c);
       wc.append(lg);
@@ -868,7 +868,7 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
       const T = (p && p.targets) || fallbackTargets();
       const t = T ? dayTarget(T, d).kcal : 0;
       const bar = el("i");
-      if (!ate.any || !t) { bar.className = "empty"; bar.style.height = "4%"; }
+      if (!ate.any || !t || d === today || ate.kcal < 0.4 * t) { bar.className = "empty"; bar.style.height = ate.any ? "10%" : "4%"; }
       else {
         logged++;
         const pct = ate.kcal / t;
@@ -883,7 +883,7 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
     bars.setAttribute("aria-label", "Calories eaten as a share of each day's target: " + (label.join(", ") || "no days logged"));
     ec.append(bars);
     ec.append(el("p", "muted", logged
-      ? "Days logged: " + logged + " of 14. Within 10% of your calorie target on " + hit + " of them. Orange bars are days more than 10% under."
+      ? "Fully logged days: " + logged + " of the last 14 (today and lightly logged days are grey). Within 10% of your calorie target on " + hit + " of them. Orange bars are days more than 10% under."
       : "Tick off foods on the Today tab as you eat them, and your days show up here."));
     main.append(ec);
 
@@ -946,8 +946,14 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
     return days;
   }
 
+  // A day counts in reports once it's over and enough food was logged to be a real day
+  // (at least 40% of its target); lighter days are shown as "partly logged".
+  function isFullDay(d) { return d.ate.any && d.T && d.target && d.date < todayStr() && d.ate.kcal >= 0.4 * d.target; }
+  function weighInsBetween(a, b) { return weights().filter((p) => p.date >= a && p.date <= b); }
+  function avgOf(list) { return list.length ? list.reduce((s, p) => s + p.w, 0) / list.length : null; }
+
   function weekSummary(days) {
-    const logged = days.filter((d) => d.ate.any && d.T);
+    const logged = days.filter(isFullDay);
     const n = logged.length;
     const avg = (f) => n ? logged.reduce((s, d) => s + f(d), 0) / n : 0;
     const counts = {};
@@ -984,13 +990,20 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
 
     const days = weekData(start);
     const s = weekSummary(days);
-    const prevAvgW = avgWeightAround(addDays(start, -1));
-    const endAvgW = avgWeightAround(end > today ? today : end);
+    const weekDone = end < today;
+    const partial = days.filter((d) => d.ate.any && !isFullDay(d) && d.date < today).length;
+    // Weekly weight change: average of this week's weigh-ins vs last week's (3+ each).
+    const thisW = weighInsBetween(start, end > today ? today : end);
+    const lastW = weighInsBetween(addDays(start, -7), addDays(start, -1));
+    const endAvgW = thisW.length >= 3 ? avgOf(thisW) : null;
+    const prevAvgW = lastW.length >= 3 ? avgOf(lastW) : null;
 
     const sc = el("section", "card");
     sc.append(el("h2", null, shortDay(start) + " – " + shortDay(end)));
     if (!s.n) {
-      sc.append(el("p", "muted", "Nothing logged this week yet. Tick off foods on the Today tab as you eat them, and answer the check-in."));
+      sc.append(el("p", "muted", weekDone
+        ? "No fully logged days this week. Tick off foods on the Today tab as you eat them, and answer the check-in."
+        : "This week's report fills in as each day finishes. Keep ticking off foods on the Today tab as you eat them."));
       main.append(sc);
       $("#stamp").textContent = "Reports use the foods you ticked off, extra food you logged and your check-ins.";
       return;
@@ -998,9 +1011,9 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
     const st = el("div", "stats");
     st.append(stat("Avg calories", fmt(s.kcal), "target " + fmt(s.target) + " · on target " + s.kcalHits + "/" + s.n + " days", Math.abs(s.kcal - s.target) <= 0.1 * s.target ? "good" : "bad"));
     st.append(stat("Avg protein", fmt(s.protein) + " g", "target " + fmt(s.proteinTarget) + " g · hit " + s.proteinHits + "/" + s.n + " days", s.protein >= 0.9 * s.proteinTarget ? "good" : "bad"));
-    st.append(stat("Lift days", String(s.lifts), "days logged: " + s.n + " of 7"));
+    st.append(stat("Lift days", String(s.lifts), "fully logged days: " + s.n + (partial ? " · partly logged: " + partial : "")));
     st.append(stat("Weight change", prevAvgW && endAvgW ? (endAvgW - prevAvgW >= 0 ? "+" : "") + fmt1(endAvgW - prevAvgW) + " lb" : "—",
-      prevAvgW && endAvgW ? "7-day avg " + fmt1(endAvgW) + " lb" : "needs weigh-ins in both weeks"));
+      prevAvgW && endAvgW ? "vs last week · avg " + fmt1(endAvgW) + " lb" : "needs 3+ weigh-ins in both weeks"));
     sc.append(st);
     const facts = el("p", "muted num", "From planned foods you ticked off: fiber about " + fmt(s.fiber) + " g a day (aim " + fmt(s.fiberTarget) + "+), sodium about " + fmt(s.sodium) + " mg (limit " + fmt(s.sodiumMax) + ").");
     sc.append(facts);
@@ -1021,10 +1034,12 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
       add(r > hi + 0.2 ? "Weight rose " + fmt1(r) + " lb, faster than the +" + fmt1(lo) + " to +" + fmt1(hi) + " lb goal. Consider about 100–150 fewer kcal a day."
         : r < lo - 0.2 ? "Weight changed " + fmt1(r) + " lb, slower than the +" + fmt1(lo) + " to +" + fmt1(hi) + " lb goal. Consider about 100–150 more kcal a day."
         : "Weight is moving at the goal pace.");
-    } else add("Weigh in most mornings so next week's report can track your rate of gain.");
+    } else add(weekDone ? "Weigh in most mornings so the report can compare your weight week to week."
+                        : "The weight comparison appears once this week has 3 or more weigh-ins.");
+    if (!weekDone) add("This week isn't over yet, so these numbers cover finished days only.");
     if (s.fiber && s.fiber < s.fiberTarget * 0.8) add("Fiber was low. Add a salad-bar plate or a piece of fruit at each meal.");
     if (s.sodium > s.sodiumMax) add("Sodium ran over the limit. Go easy on sauces, dressings, pizza and deli meats.");
-    if (s.lifts < 3) add("Only " + s.lifts + " lift day" + (s.lifts === 1 ? "" : "s") + " logged. The surplus builds muscle only with regular training.");
+    if (weekDone && s.lifts < 3) add("Only " + s.lifts + " lift day" + (s.lifts === 1 ? "" : "s") + " logged. The surplus builds muscle only with regular training.");
     tk.append(ul);
     main.append(tk);
 
@@ -1040,7 +1055,7 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
     days.forEach((d) => {
       const tr = el("tr");
       tr.append(el("td", null, shortDay(d.date)));
-      tr.append(el("td", null, d.ate.any ? fmt(d.ate.kcal) : "—"));
+      tr.append(el("td", null, d.ate.any ? fmt(d.ate.kcal) + (d.date === today ? " so far" : isFullDay(d) ? "" : " (part)") : "—"));
       tr.append(el("td", null, d.target ? fmt(d.target) : "—"));
       tr.append(el("td", null, d.ate.any ? fmt(d.ate.protein) + " g" : "—"));
       tr.append(el("td", null, d.entry.lifted === true ? (d.entry.liftMin || 60) + "m" : d.entry.lifted === false ? "rest" : "—"));
