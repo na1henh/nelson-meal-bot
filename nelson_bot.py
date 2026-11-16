@@ -814,31 +814,6 @@ def short_items(meal):
     return ", ".join(parts)
 
 
-def publish_menu(date, menus, places, out_dir):
-    """Write the day's full menu with nutrition (docs/menus/<date>.json) so the website's
-    chatbot can suggest real swaps. Dressings and condiments are left out."""
-    out = Path(out_dir) / "menus"
-    out.mkdir(parents=True, exist_ok=True)
-    day = {"date": date.isoformat(), "meals": []}
-    for meal, items in menus.items():
-        rows, seen = [], set()
-        for it in items:
-            n = it.get("n")
-            if not n or it.get("condiment") or it["key"] in seen:
-                continue
-            seen.add(it["key"])
-            rows.append({
-                "name": it["name"], "station": it["station"], "serving": n["serving"],
-                "kcal": round(n["kcal"]), "protein": round(n["protein"], 1), "carbs": round(n["carbs"], 1),
-                "fat": round(n["fat"], 1), "fiber": round(n["fiber"], 1), "sodium": round(n["sodium"]),
-                "sat_fat": round(n["sat_fat"], 1), "added_sugar": round(n["added_sugar"], 1),
-                "tags": it.get("tags", []),
-            })
-        if rows:
-            day["meals"].append({"meal": meal, "place": places.get(meal, ""), "items": rows})
-    (out / f"{date.isoformat()}.json").write_text(json.dumps(day, separators=(",", ":")), encoding="utf-8")
-
-
 def publish(plan, out_dir):
     """Write the public copy of a plan for the website and widget. Personal stats
     (weight, height, age) are left out because the repository is public."""
@@ -1013,7 +988,6 @@ def main():
         sys.exit(3)
     if args.publish_dir:
         publish(json.loads((PLANS_DIR / f"{date.isoformat()}.json").read_text(encoding="utf-8")), args.publish_dir)
-        publish_menu(date, menus, places, args.publish_dir)
     print(f"RESULT: OK {PLANS_DIR / (date.isoformat() + '.json')}", file=sys.stderr)
 
 
