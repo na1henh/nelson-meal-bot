@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#2e6a44">
+<meta name="theme-color" content="#16191e">
 <meta name="mobile-web-app-capable" content="yes">
 <title>Nelson Meal Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,29 +12,19 @@
 <style>
 /* Layout: one phone-width column, like a tray ticket - a day score at the top, then each meal as a tappable checklist grouped by station. */
 :root {
-  --paper: #f4f6f0;
-  --card: #ffffff;
-  --ink: #16201a;
-  --muted: #5d6a61;
-  --rule: #dce2d8;
-  --accent: #2e6a44;
-  --accent-soft: #e2ece3;
-  --protein: #a85f1c;
-  --protein-soft: #f3e6d6;
-  --warn: #a0451b;
+  /* One soft dark theme: charcoal, warm off-white text, muted mint/amber/coral accents. */
+  --paper: #16191e;        /* page background */
+  --card: #1e2229;         /* cards and food rows */
+  --ink: #dedad2;          /* main text: warm off-white, not pure white */
+  --muted: #9ba1a9;        /* secondary text */
+  --rule: #2d333c;         /* borders */
+  --accent: #82c4a8;       /* soft mint: buttons, progress, highlights */
+  --accent-soft: #233630;  /* ticked foods, bar tracks */
+  --protein: #e2b57f;      /* soft amber */
+  --protein-soft: #382d21;
+  --warn: #ee9c8c;         /* gentle coral */
   --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0f1411; --card: #171e19; --ink: #e6ebe5; --muted: #98a59b; --rule: #29332c;
-    --accent: #72c08f; --accent-soft: #1b2a20; --protein: #e3a463; --protein-soft: #2d2216; --warn: #ec8a5a;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0f1411; --card: #171e19; --ink: #e6ebe5; --muted: #98a59b; --rule: #29332c;
-  --accent: #72c08f; --accent-soft: #1b2a20; --protein: #e3a463; --protein-soft: #2d2216; --warn: #ec8a5a;
   color-scheme: dark;
 }
 
@@ -97,7 +87,7 @@ h1 {
   padding: 8px 12px;
   cursor: pointer;
 }
-.day[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.day[aria-pressed="true"] { background: var(--accent); color: var(--paper); border-color: var(--accent); }
 .day:focus-visible, .item:focus-visible, summary:focus-visible, .reset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* Day score */
@@ -128,7 +118,7 @@ h1 {
 
 /* Meals */
 .meal { display: grid; gap: 10px; }
-.meal-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+.meal-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 2px solid var(--rule); padding-bottom: 6px; }
 .meal-head h2 { margin: 0; font-family: var(--font-display); font-stretch: 78%; font-weight: 800; font-size: 26px; line-height: 1; }
 .meal-head span { font-size: 14px; color: var(--muted); }
 .station { font: 700 12px/1 var(--font-display); font-stretch: 85%; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-top: 6px; }
@@ -192,7 +182,7 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
 /* Tabs */
 .tabs { display: flex; gap: 4px; background: var(--card); border: 1px solid var(--rule); border-radius: 999px; padding: 4px; }
 .tab { flex: 1; font: 700 14px/1 var(--font-body); color: var(--muted); background: none; border: 0; border-radius: 999px; padding: 10px 8px; cursor: pointer; }
-.tab[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+.tab[aria-selected="true"] { background: var(--accent); color: var(--paper); }
 .tab:focus-visible, .btn:focus-visible, .seg button:focus-visible, .quick:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* Cards and forms */
