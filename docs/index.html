@@ -185,6 +185,78 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
 @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
 
 
+
+[hidden] { display: none !important; }
+.btn:disabled { opacity: 0.4; cursor: default; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; background: var(--card); border: 1px solid var(--rule); border-radius: 999px; padding: 4px; }
+.tab { flex: 1; font: 700 14px/1 var(--font-body); color: var(--muted); background: none; border: 0; border-radius: 999px; padding: 10px 8px; cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+.tab:focus-visible, .btn:focus-visible, .seg button:focus-visible, .quick:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Cards and forms */
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.card h2 { margin: 0; font-family: var(--font-display); font-stretch: 80%; font-weight: 800; font-size: 22px; line-height: 1.1; }
+.card h3 { margin: 0; font: 700 13px/1 var(--font-display); font-stretch: 85%; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.card p { margin: 0; }
+.muted { color: var(--muted); font-size: 14px; }
+.q { display: grid; gap: 8px; }
+.q label, .q .label { font-weight: 600; font-size: 15px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.seg button, .quick {
+  font: 600 14px/1 var(--font-body); color: var(--ink); background: transparent;
+  border: 1px solid var(--rule); border-radius: 999px; padding: 10px 14px; cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+input[type="number"], input[type="text"], select {
+  font: 16px/1.3 var(--font-body); color: var(--ink); background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 10px; padding: 9px 10px; min-width: 0;
+}
+input.w-num { width: 7.5em; }
+input.w-name { flex: 1 1 10em; }
+.btn { font: 700 14px/1 var(--font-body); color: var(--paper); background: var(--accent); border: 0; border-radius: 10px; padding: 11px 14px; cursor: pointer; }
+.btn.ghost { color: var(--ink); background: transparent; border: 1px solid var(--rule); }
+.linkish { font: 600 14px/1 var(--font-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+.target-line { font-size: 14px; color: var(--muted); }
+.target-line strong { color: var(--ink); }
+.callout { background: var(--accent-soft); border-radius: 12px; padding: 10px 12px; font-size: 14px; }
+.callout.warn { background: var(--protein-soft); }
+.extras { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.extras li { display: flex; justify-content: space-between; gap: 8px; align-items: center; font-size: 14px; border-top: 1px solid var(--rule); padding-top: 6px; }
+.x { font: 600 13px/1 var(--font-body); color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 6px 10px; cursor: pointer; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stat { background: var(--paper); border-radius: 12px; padding: 10px 12px; display: grid; gap: 4px; min-width: 0; }
+.stat .k { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.stat .v { font-family: var(--font-display); font-stretch: 80%; font-weight: 800; font-size: 22px; line-height: 1.05; }
+.stat .s { font-size: 13px; color: var(--muted); }
+.good { color: var(--accent); }
+.bad { color: var(--warn); }
+
+/* Chart */
+.chart { width: 100%; height: auto; display: block; }
+.chart .grid { stroke: var(--rule); stroke-width: 1; }
+.chart .band { fill: var(--accent-soft); }
+.chart .avg { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart .pt { fill: var(--muted); }
+.chart .lbl { fill: var(--muted); font: 11px var(--font-body); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 12px; height: 8px; border-radius: 3px; margin-right: 6px; vertical-align: middle; background: var(--sw); }
+
+/* Week table */
+.tbl-wrap { overflow-x: auto; }
+table.week { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.week th, table.week td { text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+table.week th:first-child, table.week td:first-child { text-align: left; }
+table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.minibars { display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 4px; align-items: end; height: 70px; }
+.minibars i { display: block; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 2px; }
+.minibars i.empty { background: var(--rule); }
+.minibars i.low { background: var(--protein); }
+.takeaways { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
 </style>
 </head>
 <body>
@@ -192,6 +264,11 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
   <header>
     <div class="eyebrow" id="place">Nelson Court · Maingain plan</div>
     <h1 id="title">Today's plan</h1>
+    <div class="tabs" role="tablist" aria-label="Views">
+      <button class="tab" id="tab-today" role="tab" type="button" data-tab="today">Today</button>
+      <button class="tab" id="tab-progress" role="tab" type="button" data-tab="progress">Progress</button>
+      <button class="tab" id="tab-week" role="tab" type="button" data-tab="week">Week</button>
+    </div>
     <div class="days" id="days" role="group" aria-label="Choose a day"></div>
   </header>
   <main id="main" class="stack">
@@ -202,6 +279,7 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
   </main>
   <footer>
     <span id="stamp">Menu and nutrition from Ohio University Culinary Services labels. Values are approximate and menus can change.</span>
+    <span>Your check-ins, weights and logged food are saved only in this browser on this phone. Use Back up on the Progress tab to keep a copy.</span>
     <span>Personal planner. Not an official Ohio University page.</span>
   </footer>
 </div>
@@ -210,45 +288,133 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
 (function () {
   const $ = (s) => document.querySelector(s);
   const fmt = (n) => Math.round(n).toLocaleString("en-US");
+  const fmt1 = (n) => (Math.round(n * 10) / 10).toFixed(1);
   const CHECK = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="var(--card)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  let plans = [], current = null, loaded = false;
 
+  // Energy model for the day (estimates, explained on the page):
+  const BASE_FACTOR = 1.45;       // resting burn x 1.45 = a day with ~10k steps and no lifting
+  const LIFT_KCAL_PER_MIN = 5;    // net extra burn from a weights session (~300 kcal per hour)
+  const BASE_STEPS = 10000;
+  const KCAL_PER_STEP_PER_KG = 0.0005; // ~0.04 kcal per step at 77 kg
+  const GAIN_LOW = 0.0025, GAIN_HIGH = 0.0035;      // target gain per week, share of body weight
+  const MUSCLE_LOW = 0.0025, MUSCLE_HIGH = 0.005;   // realistic muscle per month, advanced lifter
+  const QUICK_FOODS = [
+    { name: "Protein shake", kcal: 130, protein: 25 },
+    { name: "Greek yogurt cup", kcal: 100, protein: 15 },
+    { name: "Glass of milk", kcal: 150, protein: 8 },
+    { name: "PB&J", kcal: 380, protein: 12 },
+    { name: "Banana", kcal: 105, protein: 1 },
+  ];
+
+  let plans = [], current = null, tab = "today";
+
+  // ------------------------------------------------------------ storage
   function el(tag, cls, text) {
     const e = document.createElement(tag);
     if (cls) e.className = cls;
     if (text != null) e.textContent = text;
     return e;
   }
-  function eatenKey(date) { return "nelson-eaten-" + date; }
-  function getEaten(date) {
-    try { return new Set(JSON.parse(localStorage.getItem(eatenKey(date)) || "[]")); } catch (e) { return new Set(); }
+  function load(key, fallback) {
+    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch (e) { return fallback; }
   }
-  function setEaten(date, set) {
-    try { localStorage.setItem(eatenKey(date), JSON.stringify([...set])); } catch (e) {}
+  function save(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
   }
+  function getEaten(date) { return new Set(load("nelson-eaten-" + date, [])); }
+  function setEaten(date, set) { save("nelson-eaten-" + date, [...set]); }
+  function getLog() { const l = load("nelson-log", null) || {}; l.days = l.days || {}; return l; }
+  function setLog(l) { save("nelson-log", l); }
+  function dayEntry(date) { return getLog().days[date] || {}; }
+  function updateDay(date, patch) {
+    const l = getLog();
+    l.days[date] = Object.assign({}, l.days[date] || {}, patch);
+    Object.keys(l.days[date]).forEach((k) => { if (l.days[date][k] === null) delete l.days[date][k]; });
+    setLog(l);
+  }
+
+  // ------------------------------------------------------------ dates
+  function iso(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function todayStr() { return iso(new Date()); }
+  function parse(s) { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); }
+  function addDays(s, n) { const d = parse(s); d.setDate(d.getDate() + n); return iso(d); }
+  function daysBetween(a, b) { return Math.round((parse(b) - parse(a)) / 86400000); }
+  function shortDay(s) { return parse(s).toLocaleDateString("en-US", { weekday: "short", month: "numeric", day: "numeric" }); }
+  function weekStart(s) { const d = parse(s); const off = (d.getDay() + 6) % 7; d.setDate(d.getDate() - off); return iso(d); }
+
+  // ------------------------------------------------------------ numbers
+  function weights() {
+    const days = getLog().days;
+    return Object.keys(days).filter((d) => typeof days[d].weight === "number").sort().map((d) => ({ date: d, w: days[d].weight }));
+  }
+  function avgWeightAround(date, list) {
+    const pts = (list || weights()).filter((p) => daysBetween(p.date, date) >= 0 && daysBetween(p.date, date) < 7);
+    return pts.length ? pts.reduce((s, p) => s + p.w, 0) / pts.length : null;
+  }
+  function latestKg(date) {
+    const pts = weights().filter((p) => p.date <= date);
+    return pts.length ? pts[pts.length - 1].w * 0.4536 : null;
+  }
+  function planFor(date) { return plans.find((p) => p.date === date) || null; }
+  function fallbackTargets() { return (plans[0] && plans[0].targets) || null; }
+
+  function dayTarget(T, date) {
+    const e = dayEntry(date);
+    const surplus = (T.kcal || 0) - (T.tdee || 0);
+    if (typeof e.lifted !== "boolean") return { kcal: T.kcal, known: false };
+    const base = T.bmr ? T.bmr * BASE_FACTOR : T.tdee * 0.93;
+    const lift = e.lifted ? LIFT_KCAL_PER_MIN * (e.liftMin || 60) : 0;
+    const kg = latestKg(date);
+    const perStep = kg ? kg * KCAL_PER_STEP_PER_KG : 0.04;
+    const steps = typeof e.steps === "number" ? (e.steps - BASE_STEPS) * perStep : 0;
+    return { kcal: Math.round(base + surplus + lift + steps), known: true, base, lift, steps, surplus };
+  }
+
+  function eatenOn(date) {
+    const plan = planFor(date);
+    const ticks = getEaten(date);
+    const out = { kcal: 0, protein: 0, fiber: 0, sodium: 0, names: [], any: false };
+    if (plan) plan.meals.forEach((m) => m.items.forEach((it) => {
+      if (ticks.has(m.meal + ":" + it.id)) {
+        out.kcal += it.kcal; out.protein += it.protein; out.fiber += it.fiber || 0; out.sodium += it.sodium || 0;
+        out.names.push(it.name); out.any = true;
+      }
+    }));
+    (dayEntry(date).extras || []).forEach((x) => { out.kcal += x.kcal; out.protein += x.protein; out.names.push(x.name); out.any = true; });
+    return out;
+  }
+
+  // ------------------------------------------------------------ shell
   function showState(title, body) {
     const main = $("#main");
     main.replaceChildren();
     const s = el("section", "state");
-    s.append(el("h2", null, title));
-    const p = el("p"); p.innerHTML = body; s.append(p);
+    s.append(el("h2", null, title), el("p", null, body));
     main.append(s);
   }
+  function rerender() { const y = window.scrollY; render(); window.scrollTo(0, y); }
+  function setTab(t) {
+    tab = t;
+    save("nelson-tab", t);
+    history.replaceState(null, "", t === "today" ? (current ? "#d-" + current : "#") : "#" + t);
+    render();
+    window.scrollTo(0, 0);
+  }
+  document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
 
   function pickDefault() {
     const want = (location.hash || "").replace(/^#d-/, "");
     if (want && plans.some((p) => p.date === want)) return want;
-    const d = new Date();
-    const today = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
-    if (plans.some((p) => p.date === today)) return today;
+    if (plans.some((p) => p.date === todayStr())) return todayStr();
     return plans[0].date;
   }
 
   function renderDays() {
     const box = $("#days");
     box.replaceChildren();
-    if (plans.length < 2) return;
-    [...plans].reverse().forEach((p) => {
+    box.hidden = tab !== "today" || plans.length < 2;
+    if (box.hidden) return;
+    plans.slice(0, 14).reverse().forEach((p) => {
       const b = el("button", "day", p.label ? p.label.replace(/,.*$/, "").slice(0, 3) + " " + p.date.slice(5).replace("-", "/") : p.date);
       b.type = "button";
       b.setAttribute("aria-pressed", String(p.date === current));
@@ -258,9 +424,168 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
   }
 
   function render() {
-    const plan = plans.find((p) => p.date === current);
-    if (!plan) return;
+    document.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
     renderDays();
+    if (tab === "progress") return renderProgress();
+    if (tab === "week") return renderWeek();
+    renderToday();
+  }
+
+  // ------------------------------------------------------------ Today
+  function meter(label, val, target, planned, unit, cls) {
+    const m = el("div", "meter");
+    const top = el("div", "meter-top");
+    top.append(el("span", "meter-label", label));
+    const v = el("span", "meter-val num");
+    v.textContent = fmt(val) + unit;
+    v.append(el("small", null, " / " + fmt(target) + unit));
+    top.append(v);
+    const bar = el("div", "bar" + (cls ? " " + cls : ""));
+    bar.setAttribute("role", "progressbar");
+    bar.setAttribute("aria-label", label);
+    bar.setAttribute("aria-valuemin", "0");
+    bar.setAttribute("aria-valuemax", String(Math.round(target)));
+    bar.setAttribute("aria-valuenow", String(Math.round(val)));
+    const fill = el("i"); fill.style.width = Math.min(100, (val / target) * 100) + "%";
+    const tick = el("b"); tick.style.left = "calc(" + Math.min(100, (planned / target) * 100) + "% - 1px)";
+    tick.title = "Planned";
+    bar.append(fill, tick);
+    m.append(top, bar);
+    return m;
+  }
+
+  function checkinCard(plan) {
+    const date = plan.date;
+    const e = dayEntry(date);
+    const card = el("section", "card");
+    card.setAttribute("aria-label", "Daily check-in");
+    const answered = typeof e.lifted === "boolean";
+    card.append(el("h2", null, date === todayStr() ? "Quick check-in" : "Check-in for " + shortDay(date)));
+
+    if (answered && !checkinCard.editing) {
+      const bits = [e.lifted ? "Lifted " + (e.liftMin || 60) + " min" : "Rest day",
+        typeof e.steps === "number" ? fmt(e.steps) + " steps" : "~10k steps",
+        typeof e.weight === "number" ? fmt1(e.weight) + " lb" : "no weigh-in"];
+      const row = el("div", "row");
+      row.append(el("span", "muted", bits.join(" · ")));
+      const edit = el("button", "linkish", "Edit");
+      edit.type = "button";
+      edit.addEventListener("click", () => { checkinCard.editing = true; rerender(); });
+      row.append(edit);
+      card.append(row);
+      return card;
+    }
+
+    // Lifted?
+    const q1 = el("div", "q");
+    q1.append(el("span", "label", date === todayStr() ? "Are you lifting today?" : "Did you lift that day?"));
+    const seg = el("div", "seg");
+    [["Yes", true], ["No, rest day", false]].forEach(([label, val]) => {
+      const b = el("button", null, label);
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(e.lifted === val));
+      b.addEventListener("click", () => { checkinCard.editing = true; updateDay(date, { lifted: val }); rerender(); });
+      seg.append(b);
+    });
+    q1.append(seg);
+    if (e.lifted === true) {
+      const seg2 = el("div", "seg");
+      seg2.setAttribute("aria-label", "Session length");
+      [30, 45, 60, 75, 90].forEach((min) => {
+        const b = el("button", null, min + " min");
+        b.type = "button";
+        b.setAttribute("aria-pressed", String((e.liftMin || 60) === min));
+        b.addEventListener("click", () => { updateDay(date, { liftMin: min }); rerender(); });
+        seg2.append(b);
+      });
+      q1.append(seg2);
+    }
+    card.append(q1);
+
+    // Weight + steps
+    const q2 = el("div", "q");
+    const wl = el("label", null, "Morning weight (lb, optional)");
+    wl.htmlFor = "ci-weight";
+    const wIn = el("input", "w-num");
+    wIn.id = "ci-weight"; wIn.type = "number"; wIn.inputMode = "decimal"; wIn.step = "0.1"; wIn.min = "60"; wIn.max = "400";
+    if (typeof e.weight === "number") wIn.value = e.weight;
+    const sl = el("label", null, "Steps (optional, if far from 10k)");
+    sl.htmlFor = "ci-steps";
+    const sIn = el("input", "w-num");
+    sIn.id = "ci-steps"; sIn.type = "number"; sIn.inputMode = "numeric"; sIn.step = "500"; sIn.min = "0"; sIn.max = "60000";
+    if (typeof e.steps === "number") sIn.value = e.steps;
+    const saveBtn = el("button", "btn", "Save");
+    saveBtn.type = "button";
+    saveBtn.addEventListener("click", () => {
+      const w = parseFloat(wIn.value), s = parseInt(sIn.value, 10);
+      updateDay(date, { weight: isFinite(w) && w > 60 && w < 400 ? Math.round(w * 10) / 10 : null,
+                        steps: isFinite(s) && s >= 0 ? s : null });
+      if (typeof dayEntry(date).lifted === "boolean") checkinCard.editing = false;
+      rerender();
+    });
+    q2.append(wl, wIn, sl, sIn);
+    const row = el("div", "row"); row.append(saveBtn);
+    if (answered) {
+      const done = el("button", "btn ghost", "Done");
+      done.type = "button";
+      done.addEventListener("click", () => { checkinCard.editing = false; rerender(); });
+      row.append(done);
+    }
+    q2.append(row);
+    card.append(q2);
+    return card;
+  }
+
+  function extrasCard(plan) {
+    const date = plan.date;
+    const e = dayEntry(date);
+    const list = e.extras || [];
+    const card = el("section", "card");
+    card.setAttribute("aria-label", "Food not on the plan");
+    card.append(el("h2", null, "Other food today"));
+    card.append(el("p", "muted", "Snacks, shakes or anything you ate that isn't in the plan."));
+    const quick = el("div", "seg");
+    QUICK_FOODS.forEach((f) => {
+      const b = el("button", "quick", "+ " + f.name);
+      b.type = "button";
+      b.addEventListener("click", () => { updateDay(date, { extras: list.concat([f]) }); rerender(); });
+      quick.append(b);
+    });
+    card.append(quick);
+    const row = el("div", "row");
+    const nIn = el("input", "w-name"); nIn.type = "text"; nIn.id = "ex-name"; nIn.placeholder = "Food"; nIn.setAttribute("aria-label", "Food name");
+    const kIn = el("input", "w-num"); kIn.type = "number"; kIn.id = "ex-kcal"; kIn.placeholder = "kcal"; kIn.inputMode = "numeric"; kIn.setAttribute("aria-label", "Calories");
+    const pIn = el("input", "w-num"); pIn.type = "number"; pIn.id = "ex-protein"; pIn.placeholder = "protein g"; pIn.inputMode = "numeric"; pIn.setAttribute("aria-label", "Protein in grams");
+    const add = el("button", "btn", "Add");
+    add.type = "button";
+    add.addEventListener("click", () => {
+      const k = parseFloat(kIn.value), p = parseFloat(pIn.value);
+      if (!isFinite(k) || k <= 0) { kIn.focus(); return; }
+      updateDay(date, { extras: list.concat([{ name: nIn.value.trim() || "Other food", kcal: Math.round(k), protein: isFinite(p) ? Math.round(p) : 0 }]) });
+      rerender();
+    });
+    row.append(nIn, kIn, pIn, add);
+    card.append(row);
+    if (list.length) {
+      const ul = el("ul", "extras");
+      list.forEach((x, i) => {
+        const li = el("li");
+        li.append(el("span", "num", x.name + " · " + fmt(x.kcal) + " kcal · " + fmt(x.protein) + " g protein"));
+        const rm = el("button", "x", "Remove");
+        rm.type = "button";
+        rm.setAttribute("aria-label", "Remove " + x.name);
+        rm.addEventListener("click", () => { updateDay(date, { extras: list.filter((_, j) => j !== i) }); rerender(); });
+        li.append(rm);
+        ul.append(li);
+      });
+      card.append(ul);
+    }
+    return card;
+  }
+
+  function renderToday() {
+    const plan = planFor(current);
+    if (!plan) return;
     $("#title").textContent = plan.label || plan.date;
     $("#place").textContent = (plan.place || "Nelson Court") + " · Maingain plan";
     const eaten = getEaten(plan.date);
@@ -268,58 +593,50 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
     const main = $("#main");
     main.replaceChildren();
 
-    // ---- older-plan warning
-    const now = new Date();
-    const todayStr = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
-    if (plan.date !== todayStr) {
+    if (plan.date !== todayStr()) {
       const w = el("p", "stale");
-      w.append(el("strong", null, plan.date < todayStr ? "Older plan. " : "Future plan. "));
-      w.append(plan.date < todayStr
-        ? "This is the plan for " + (plan.label || plan.date) + ". Today's plan hasn't arrived yet, so Nelson's menu may not match."
+      w.append(el("strong", null, plan.date < todayStr() ? "Older plan. " : "Future plan. "));
+      w.append(plan.date < todayStr()
+        ? "This is the plan for " + (plan.label || plan.date) + ". Today's plan hasn't arrived yet, so the menu may not match."
         : "This is the plan for " + (plan.label || plan.date) + ", not today.");
       main.append(w);
     }
 
-    // ---- score
-    let eK = 0, eP = 0;
-    plan.meals.forEach((m) => m.items.forEach((it) => {
-      if (eaten.has(m.meal + ":" + it.id)) { eK += it.kcal; eP += it.protein; }
-    }));
+    main.append(checkinCard(plan));
+
+    // ---- score, with the target adjusted for exercise
+    const tgt = dayTarget(T, plan.date);
+    const ate = eatenOn(plan.date);
     const score = el("section", "score");
     score.setAttribute("aria-label", "Today's progress");
-    const meter = (label, val, target, planned, unit, cls) => {
-      const m = el("div", "meter");
-      const top = el("div", "meter-top");
-      top.append(el("span", "meter-label", label));
-      const v = el("span", "meter-val num");
-      v.textContent = fmt(val) + unit;
-      v.append(el("small", null, " / " + fmt(target) + unit));
-      top.append(v);
-      const bar = el("div", "bar" + (cls ? " " + cls : ""));
-      bar.setAttribute("role", "progressbar");
-      bar.setAttribute("aria-valuemin", "0");
-      bar.setAttribute("aria-valuemax", String(Math.round(target)));
-      bar.setAttribute("aria-valuenow", String(Math.round(val)));
-      const fill = el("i"); fill.style.width = Math.min(100, (val / target) * 100) + "%";
-      const tick = el("b"); tick.style.left = "calc(" + Math.min(100, (planned / target) * 100) + "% - 1px)";
-      tick.title = "Planned";
-      bar.append(fill, tick);
-      m.append(top, bar);
-      return m;
-    };
-    score.append(meter("Calories eaten", eK, T.kcal, plan.totals.kcal, "", ""));
-    score.append(meter("Protein eaten", eP, T.protein, plan.totals.protein, " g", "protein"));
+    score.append(meter("Calories eaten", ate.kcal, tgt.kcal, plan.totals.kcal, "", ""));
+    score.append(meter("Protein eaten", ate.protein, T.protein, plan.totals.protein, " g", "protein"));
+    const tl = el("p", "target-line num");
+    if (tgt.known) {
+      tl.append("Today's target ", el("strong", null, fmt(tgt.kcal) + " kcal"), " = " + fmt(tgt.base) + " base (10k steps)" +
+        (tgt.lift ? " + " + fmt(tgt.lift) + " lifting" : "") +
+        (Math.abs(tgt.steps) >= 10 ? (tgt.steps > 0 ? " + " : " − ") + fmt(Math.abs(tgt.steps)) + " steps" : "") +
+        " + " + fmt(tgt.surplus) + " surplus.");
+    } else {
+      tl.append("Target ", el("strong", null, fmt(tgt.kcal) + " kcal"), " is your average day. Answer the check-in to adjust it for lifting.");
+    }
+    score.append(tl);
+    const gap = tgt.kcal - plan.totals.kcal;
+    if (tgt.known && Math.abs(gap) > 150) {
+      const c = el("p", "callout" + (gap < 0 ? " warn" : ""));
+      c.textContent = gap > 0
+        ? "The plan is about " + fmt(gap) + " kcal under today's target. Add a snack below, such as a protein shake or a PB&J."
+        : "Rest day: the plan is about " + fmt(-gap) + " kcal over today's target. Leave a bit of the pasta or skip the dessert.";
+      score.append(c);
+    }
     const facts = el("div", "facts num");
     const fact = (label, val, target, unit, mode) => {
       const s = el("span");
-      const over = mode === "max" ? val > target : false;
-      if (over) s.className = "over";
-      s.append(label + " ");
-      s.append(el("strong", null, fmt(val) + unit));
-      s.append(" / " + (mode === "max" ? "≤" : mode === "min" ? "≥" : "") + fmt(target) + unit);
+      if (mode === "max" && val > target) s.className = "over";
+      s.append(label + " ", el("strong", null, fmt(val) + unit), " / " + (mode === "max" ? "≤" : mode === "min" ? "≥" : "") + fmt(target) + unit);
       return s;
     };
-    facts.append(fact("Planned", plan.totals.kcal, T.kcal, " kcal"));
+    facts.append(fact("Planned", plan.totals.kcal, tgt.kcal, " kcal"));
     facts.append(fact("Fiber", plan.totals.fiber, T.fiber, " g", "min"));
     facts.append(fact("Sodium", plan.totals.sodium, T.sodium, " mg", "max"));
     if (plan.totals.produce_g != null && T.produce_g) facts.append(fact("Fruit & veg", plan.totals.produce_g, T.produce_g, " g", "min"));
@@ -364,20 +681,16 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
             const set = getEaten(plan.date);
             set.has(key) ? set.delete(key) : set.add(key);
             setEaten(plan.date, set);
-            const y = window.scrollY;
-            render();
-            window.scrollTo(0, y);
+            rerender();
           });
           list.append(b);
         });
         sec.append(list);
       });
       const tot = el("div", "meal-total num");
-      tot.append("Meal total ");
-      tot.append(el("strong", null, fmt(m.totals.kcal) + " kcal"));
-      tot.append(el("span", null, fmt(m.totals.protein) + " g protein"));
-      tot.append(el("span", null, fmt(m.totals.fiber) + " g fiber"));
-      tot.append(el("span", null, fmt(m.totals.sodium) + " mg sodium"));
+      tot.append("Meal total ", el("strong", null, fmt(m.totals.kcal) + " kcal"),
+        el("span", null, fmt(m.totals.protein) + " g protein"), el("span", null, fmt(m.totals.fiber) + " g fiber"),
+        el("span", null, fmt(m.totals.sodium) + " mg sodium"));
       sec.append(tot);
       if (m.backups && m.backups.length) {
         const d = el("details");
@@ -391,7 +704,8 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
       main.append(sec);
     });
 
-    // ---- notes
+    main.append(extrasCard(plan));
+
     if (plan.notes && plan.notes.length) {
       const n = el("section", "notes");
       n.append(el("h2", null, "Notes"));
@@ -403,13 +717,358 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
     if (eaten.size) {
       const r = el("button", "reset", "Clear checked foods");
       r.type = "button";
-      r.addEventListener("click", () => { setEaten(plan.date, new Set()); render(); });
+      r.addEventListener("click", () => { setEaten(plan.date, new Set()); rerender(); });
       main.append(r);
     }
     $("#stamp").textContent = "Planned " + (plan.generated || "").replace("T", " at ") + ". " +
       "Menu and nutrition from Ohio University Culinary Services labels. Values are approximate and menus can change.";
   }
 
+  // ------------------------------------------------------------ Progress
+  function svg(tag, attrs) {
+    const e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => e.setAttribute(k, v));
+    return e;
+  }
+
+  function weightChart(pts, start) {
+    const W = 340, H = 180, L = 36, R = 8, TOP = 10, B = 24;
+    const today = todayStr();
+    const first = pts[0].date;
+    const span = Math.max(14, daysBetween(first, today) + 7);
+    const x = (d) => L + (daysBetween(first, d) / span) * (W - L - R);
+    const goalAt = (d, r) => start.w * Math.pow(1 + r, daysBetween(start.date, d) / 7);
+    const end = addDays(first, span);
+    const vals = pts.map((p) => p.w).concat([goalAt(end, GAIN_HIGH), start.w]);
+    let lo = Math.min(...vals) - 1, hi = Math.max(...vals) + 1;
+    const y = (w) => TOP + (1 - (w - lo) / (hi - lo)) * (H - TOP - B);
+    const s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart", role: "img",
+      "aria-label": "Weight over time with the target gain range" });
+    for (let i = 0; i <= 3; i++) {
+      const w = lo + ((hi - lo) * i) / 3;
+      s.append(svg("line", { x1: L, x2: W - R, y1: y(w), y2: y(w), class: "grid" }));
+      const t = svg("text", { x: L - 6, y: y(w) + 4, "text-anchor": "end", class: "lbl" }); t.textContent = Math.round(w);
+      s.append(t);
+    }
+    // goal band from the first weigh-in
+    const steps = 12, top = [], bot = [];
+    for (let i = 0; i <= steps; i++) {
+      const d = addDays(start.date, Math.round((daysBetween(start.date, end) * i) / steps));
+      top.push(x(d) + "," + y(goalAt(d, GAIN_HIGH)));
+      bot.unshift(x(d) + "," + y(goalAt(d, GAIN_LOW)));
+    }
+    s.append(svg("polygon", { points: top.concat(bot).join(" "), class: "band" }));
+    pts.forEach((p) => s.append(svg("circle", { cx: x(p.date), cy: y(p.w), r: 2.5, class: "pt" })));
+    const avgPts = pts.map((p) => ({ d: p.date, a: avgWeightAround(p.date, pts) }));
+    s.append(svg("polyline", { points: avgPts.map((p) => x(p.d) + "," + y(p.a)).join(" "), class: "avg" }));
+    [first, end].forEach((d, i) => {
+      const t = svg("text", { x: x(d), y: H - 6, "text-anchor": i ? "end" : "start", class: "lbl" });
+      t.textContent = parse(d).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      s.append(t);
+    });
+    return s;
+  }
+
+  function stat(k, v, s, cls) {
+    const box = el("div", "stat");
+    box.append(el("span", "k", k));
+    const vv = el("span", "v num" + (cls ? " " + cls : ""), v);
+    box.append(vv);
+    if (s) box.append(el("span", "s", s));
+    return box;
+  }
+
+  function renderProgress() {
+    $("#title").textContent = "Progress";
+    $("#place").textContent = "Maingain tracker";
+    const main = $("#main");
+    main.replaceChildren();
+    const pts = weights();
+    const today = todayStr();
+
+    // ---- weight
+    const wc = el("section", "card");
+    wc.append(el("h2", null, "Weight"));
+    if (pts.length < 2) {
+      wc.append(el("p", "muted", "Log your morning weight in the Today tab's check-in. The chart and goal range appear after two weigh-ins; the trend is most useful after two weeks."));
+      if (pts.length === 1) wc.append(el("p", null, "First weigh-in: " + fmt1(pts[0].w) + " lb on " + shortDay(pts[0].date) + "."));
+    } else {
+      const start = pts[0];
+      const nowAvg = avgWeightAround(today, pts) || pts[pts.length - 1].w;
+      const weekAgo = avgWeightAround(addDays(today, -7), pts);
+      const rate = weekAgo ? nowAvg - weekAgo : null;
+      const weeks = daysBetween(start.date, today) / 7;
+      const goalLo = start.w * Math.pow(1 + GAIN_LOW, weeks), goalHi = start.w * Math.pow(1 + GAIN_HIGH, weeks);
+      const in12Lo = start.w * Math.pow(1 + GAIN_LOW, weeks + 12), in12Hi = start.w * Math.pow(1 + GAIN_HIGH, weeks + 12);
+      const onTrack = nowAvg >= goalLo - 0.5 && nowAvg <= goalHi + 0.5;
+      wc.append(weightChart(pts, start));
+      const lg = el("div", "legend");
+      const a = el("span", null, "7-day average"); a.style.setProperty("--sw", "var(--accent)");
+      const b = el("span", null, "Target range"); b.style.setProperty("--sw", "var(--accent-soft)");
+      const c = el("span", null, "Daily weigh-ins"); c.style.setProperty("--sw", "var(--muted)");
+      lg.append(a, b, c);
+      wc.append(lg);
+      const st = el("div", "stats");
+      st.append(stat("Now (7-day avg)", fmt1(nowAvg) + " lb", (nowAvg - start.w >= 0 ? "+" : "") + fmt1(nowAvg - start.w) + " lb since " + shortDay(start.date)));
+      st.append(stat("Should weigh now", fmt1(goalLo) + "–" + fmt1(goalHi), onTrack ? "You're on track" : (nowAvg > goalHi ? "Above the range: gaining fast" : "Below the range: gaining slowly"), onTrack ? "good" : "bad"));
+      st.append(stat("This week's rate", rate == null ? "—" : (rate >= 0 ? "+" : "") + fmt1(rate) + " lb", "Goal +" + fmt1(nowAvg * GAIN_LOW) + " to +" + fmt1(nowAvg * GAIN_HIGH) + " lb/week"));
+      st.append(stat("In 12 weeks", fmt1(in12Lo) + "–" + fmt1(in12Hi), "if you stay on pace"));
+      wc.append(st);
+    }
+    main.append(wc);
+
+    // ---- muscle estimate
+    const mc = el("section", "card");
+    mc.append(el("h2", null, "Muscle (rough estimate)"));
+    if (pts.length >= 2) {
+      const start = pts[0];
+      const months = daysBetween(start.date, today) / 30.4;
+      const gained = (avgWeightAround(today, pts) || pts[pts.length - 1].w) - start.w;
+      let lo = start.w * MUSCLE_LOW * months, hi = start.w * MUSCLE_HIGH * months;
+      if (gained < hi) hi = Math.max(0, gained);
+      if (lo > hi) lo = hi;
+      mc.append(el("p", null, "Likely muscle gained since " + shortDay(start.date) + ": about " + fmt1(lo) + "–" + fmt1(hi) + " lb (of " + fmt1(Math.max(0, gained)) + " lb total gained)."));
+    }
+    mc.append(el("p", "muted", "A scale can't tell muscle from fat. This uses a common coaching rule of thumb: an advanced natural lifter can usually add about 0.25–0.5% of body weight in muscle per month. It isn't a measurement. Rising strength with a steady waist is the best sign the gain is mostly muscle."));
+    const wl = getLog().waist || [];
+    const row = el("div", "row");
+    const wlab = el("label", null, "Waist at the navel (in)");
+    wlab.htmlFor = "waist-in";
+    const wIn = el("input", "w-num"); wIn.id = "waist-in"; wIn.type = "number"; wIn.step = "0.1"; wIn.inputMode = "decimal";
+    const wBtn = el("button", "btn ghost", "Log waist");
+    wBtn.type = "button";
+    wBtn.addEventListener("click", () => {
+      const v = parseFloat(wIn.value);
+      if (!isFinite(v) || v < 20 || v > 70) { wIn.focus(); return; }
+      const l = getLog();
+      l.waist = (l.waist || []).filter((x) => x.date !== today).concat([{ date: today, inches: Math.round(v * 10) / 10 }]).sort((a, b) => a.date < b.date ? -1 : 1);
+      setLog(l);
+      rerender();
+    });
+    row.append(wlab, wIn, wBtn);
+    mc.append(row);
+    if (wl.length) {
+      const f = wl[0], l = wl[wl.length - 1];
+      mc.append(el("p", "muted num", "Waist: " + fmt1(l.inches) + " in on " + shortDay(l.date) +
+        (wl.length > 1 ? " (" + (l.inches - f.inches >= 0 ? "+" : "") + fmt1(l.inches - f.inches) + " in since " + shortDay(f.date) + ")" : "") + ". Measure about once a month."));
+    }
+    main.append(mc);
+
+    // ---- eating, last 14 days
+    const ec = el("section", "card");
+    ec.append(el("h2", null, "Eating, last 14 days"));
+    const bars = el("div", "minibars");
+    bars.setAttribute("role", "img");
+    let hit = 0, logged = 0;
+    const label = [];
+    for (let i = 13; i >= 0; i--) {
+      const d = addDays(today, -i);
+      const p = planFor(d);
+      const ate = eatenOn(d);
+      const T = (p && p.targets) || fallbackTargets();
+      const t = T ? dayTarget(T, d).kcal : 0;
+      const bar = el("i");
+      if (!ate.any || !t) { bar.className = "empty"; bar.style.height = "4%"; }
+      else {
+        logged++;
+        const pct = ate.kcal / t;
+        if (pct >= 0.9 && pct <= 1.1) hit++;
+        bar.style.height = Math.min(100, pct * 100) + "%";
+        if (pct < 0.9) bar.className = "low";
+        label.push(shortDay(d) + " " + Math.round(pct * 100) + "%");
+      }
+      bar.title = shortDay(d);
+      bars.append(bar);
+    }
+    bars.setAttribute("aria-label", "Calories eaten as a share of each day's target: " + (label.join(", ") || "no days logged"));
+    ec.append(bars);
+    ec.append(el("p", "muted", logged
+      ? "Days logged: " + logged + " of 14. Within 10% of your calorie target on " + hit + " of them. Orange bars are days more than 10% under."
+      : "Tick off foods on the Today tab as you eat them, and your days show up here."));
+    main.append(ec);
+
+    main.append(backupCard());
+    $("#stamp").textContent = "Weights, check-ins and logged food are estimates you entered on this phone.";
+  }
+
+  function backupCard() {
+    const c = el("section", "card");
+    c.append(el("h2", null, "Back up your data"));
+    c.append(el("p", "muted", "Everything you log is stored only in this browser. Save a backup now and then, and restore it if you switch phones or clear your browser."));
+    const row = el("div", "row");
+    const exp = el("button", "btn ghost", "Save backup file");
+    exp.type = "button";
+    exp.addEventListener("click", () => {
+      const data = {};
+      try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith("nelson-")) data[k] = localStorage.getItem(k); } } catch (e) {}
+      const blob = new Blob([JSON.stringify({ app: "nelson-meal-plan", saved: new Date().toISOString(), data }, null, 1)], { type: "application/json" });
+      const a = el("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "meal-plan-backup-" + todayStr() + ".json";
+      document.body.append(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    });
+    const imp = el("label", "btn ghost", "Restore from file");
+    const file = el("input");
+    file.type = "file"; file.accept = "application/json,.json"; file.hidden = true; file.id = "restore-file";
+    imp.htmlFor = "restore-file";
+    const msg = el("p", "muted");
+    file.addEventListener("change", async () => {
+      const f = file.files && file.files[0];
+      if (!f) return;
+      try {
+        const j = JSON.parse(await f.text());
+        if (!j || j.app !== "nelson-meal-plan" || !j.data) throw new Error("not a backup");
+        Object.entries(j.data).forEach(([k, v]) => { if (k.startsWith("nelson-")) localStorage.setItem(k, v); });
+        msg.textContent = "Restored the backup from " + (j.saved || "").slice(0, 10) + ".";
+        rerender();
+      } catch (e) {
+        msg.textContent = "That file isn't a meal-plan backup, so nothing was changed.";
+      }
+    });
+    row.append(exp, imp, file);
+    c.append(row, msg);
+    return c;
+  }
+
+  // ------------------------------------------------------------ Week report
+  let weekOffset = 0;
+  function weekData(startDate) {
+    const days = [];
+    for (let i = 0; i < 7; i++) {
+      const d = addDays(startDate, i);
+      const p = planFor(d);
+      const T = (p && p.targets) || fallbackTargets();
+      const ate = eatenOn(d);
+      const e = dayEntry(d);
+      days.push({ date: d, plan: p, T, ate, entry: e, target: T ? dayTarget(T, d).kcal : null });
+    }
+    return days;
+  }
+
+  function weekSummary(days) {
+    const logged = days.filter((d) => d.ate.any && d.T);
+    const n = logged.length;
+    const avg = (f) => n ? logged.reduce((s, d) => s + f(d), 0) / n : 0;
+    const counts = {};
+    logged.forEach((d) => d.ate.names.forEach((nm) => { counts[nm] = (counts[nm] || 0) + 1; }));
+    return {
+      n,
+      kcal: avg((d) => d.ate.kcal), target: avg((d) => d.target),
+      protein: avg((d) => d.ate.protein), proteinTarget: avg((d) => d.T.protein),
+      fiber: avg((d) => d.ate.fiber), sodium: avg((d) => d.ate.sodium),
+      kcalHits: logged.filter((d) => d.ate.kcal >= 0.9 * d.target && d.ate.kcal <= 1.1 * d.target).length,
+      proteinHits: logged.filter((d) => d.ate.protein >= 0.9 * d.T.protein).length,
+      lifts: days.filter((d) => d.entry.lifted === true).length,
+      top: Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 5),
+      fiberTarget: avg((d) => d.T.fiber || 0), sodiumMax: avg((d) => d.T.sodium || 2300),
+    };
+  }
+
+  function renderWeek() {
+    const today = todayStr();
+    const start = addDays(weekStart(today), -7 * weekOffset);
+    const end = addDays(start, 6);
+    $("#title").textContent = "Week of " + parse(start).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    $("#place").textContent = "Weekly report";
+    const main = $("#main");
+    main.replaceChildren();
+
+    const nav = el("div", "row");
+    const prev = el("button", "btn ghost", "‹ Earlier week"); prev.type = "button";
+    prev.addEventListener("click", () => { weekOffset++; rerender(); });
+    const next = el("button", "btn ghost", "Later week ›"); next.type = "button"; next.disabled = weekOffset === 0;
+    next.addEventListener("click", () => { weekOffset = Math.max(0, weekOffset - 1); rerender(); });
+    nav.append(prev, next);
+    main.append(nav);
+
+    const days = weekData(start);
+    const s = weekSummary(days);
+    const prevAvgW = avgWeightAround(addDays(start, -1));
+    const endAvgW = avgWeightAround(end > today ? today : end);
+
+    const sc = el("section", "card");
+    sc.append(el("h2", null, shortDay(start) + " – " + shortDay(end)));
+    if (!s.n) {
+      sc.append(el("p", "muted", "Nothing logged this week yet. Tick off foods on the Today tab as you eat them, and answer the check-in."));
+      main.append(sc);
+      $("#stamp").textContent = "Reports use the foods you ticked off, extra food you logged and your check-ins.";
+      return;
+    }
+    const st = el("div", "stats");
+    st.append(stat("Avg calories", fmt(s.kcal), "target " + fmt(s.target) + " · on target " + s.kcalHits + "/" + s.n + " days", Math.abs(s.kcal - s.target) <= 0.1 * s.target ? "good" : "bad"));
+    st.append(stat("Avg protein", fmt(s.protein) + " g", "target " + fmt(s.proteinTarget) + " g · hit " + s.proteinHits + "/" + s.n + " days", s.protein >= 0.9 * s.proteinTarget ? "good" : "bad"));
+    st.append(stat("Lift days", String(s.lifts), "days logged: " + s.n + " of 7"));
+    st.append(stat("Weight change", prevAvgW && endAvgW ? (endAvgW - prevAvgW >= 0 ? "+" : "") + fmt1(endAvgW - prevAvgW) + " lb" : "—",
+      prevAvgW && endAvgW ? "7-day avg " + fmt1(endAvgW) + " lb" : "needs weigh-ins in both weeks"));
+    sc.append(st);
+    const facts = el("p", "muted num", "From planned foods you ticked off: fiber about " + fmt(s.fiber) + " g a day (aim " + fmt(s.fiberTarget) + "+), sodium about " + fmt(s.sodium) + " mg (limit " + fmt(s.sodiumMax) + ").");
+    sc.append(facts);
+    main.append(sc);
+
+    // takeaways
+    const tk = el("section", "card");
+    tk.append(el("h2", null, "Takeaways"));
+    const ul = el("ul", "takeaways");
+    const add = (t) => ul.append(el("li", null, t));
+    if (s.protein < 0.9 * s.proteinTarget) add("Protein averaged " + fmt(s.protein) + " g, under your " + fmt(s.proteinTarget) + " g target. A daily shake or Greek yogurt would close most of the gap.");
+    else add("Protein was on target, averaging " + fmt(s.protein) + " g a day.");
+    if (s.kcal < 0.9 * s.target) add("Calories averaged " + fmt(s.target - s.kcal) + " under target. If your weight isn't rising, add a snack on lift days.");
+    else if (s.kcal > 1.1 * s.target) add("Calories averaged " + fmt(s.kcal - s.target) + " over target. Watch the weight trend; trim portions if it climbs faster than the goal.");
+    else add("Calories stayed within 10% of target on average.");
+    if (prevAvgW && endAvgW) {
+      const r = endAvgW - prevAvgW, lo = endAvgW * GAIN_LOW, hi = endAvgW * GAIN_HIGH;
+      add(r > hi + 0.2 ? "Weight rose " + fmt1(r) + " lb, faster than the +" + fmt1(lo) + " to +" + fmt1(hi) + " lb goal. Consider about 100–150 fewer kcal a day."
+        : r < lo - 0.2 ? "Weight changed " + fmt1(r) + " lb, slower than the +" + fmt1(lo) + " to +" + fmt1(hi) + " lb goal. Consider about 100–150 more kcal a day."
+        : "Weight is moving at the goal pace.");
+    } else add("Weigh in most mornings so next week's report can track your rate of gain.");
+    if (s.fiber && s.fiber < s.fiberTarget * 0.8) add("Fiber was low. Add a salad-bar plate or a piece of fruit at each meal.");
+    if (s.sodium > s.sodiumMax) add("Sodium ran over the limit. Go easy on sauces, dressings, pizza and deli meats.");
+    if (s.lifts < 3) add("Only " + s.lifts + " lift day" + (s.lifts === 1 ? "" : "s") + " logged. The surplus builds muscle only with regular training.");
+    tk.append(ul);
+    main.append(tk);
+
+    // day table
+    const dc = el("section", "card");
+    dc.append(el("h2", null, "Day by day"));
+    const wrap = el("div", "tbl-wrap");
+    const t = el("table", "week");
+    const thead = el("thead"); const hr = el("tr");
+    ["Day", "Ate", "Target", "Protein", "Lift", "Weight"].forEach((h) => hr.append(el("th", null, h)));
+    thead.append(hr); t.append(thead);
+    const tb = el("tbody");
+    days.forEach((d) => {
+      const tr = el("tr");
+      tr.append(el("td", null, shortDay(d.date)));
+      tr.append(el("td", null, d.ate.any ? fmt(d.ate.kcal) : "—"));
+      tr.append(el("td", null, d.target ? fmt(d.target) : "—"));
+      tr.append(el("td", null, d.ate.any ? fmt(d.ate.protein) + " g" : "—"));
+      tr.append(el("td", null, d.entry.lifted === true ? (d.entry.liftMin || 60) + "m" : d.entry.lifted === false ? "rest" : "—"));
+      tr.append(el("td", null, typeof d.entry.weight === "number" ? fmt1(d.entry.weight) : "—"));
+      tb.append(tr);
+    });
+    t.append(tb); wrap.append(t); dc.append(wrap);
+    if (s.top.length) dc.append(el("p", "muted", "Most eaten: " + s.top.map(([nm, c]) => nm + (c > 1 ? " ×" + c : "")).join(", ") + "."));
+    const copy = el("button", "btn ghost", "Copy this report");
+    copy.type = "button";
+    copy.addEventListener("click", async () => {
+      const lines = ["Meal plan report, " + shortDay(start) + " – " + shortDay(end),
+        "Avg calories " + fmt(s.kcal) + " (target " + fmt(s.target) + "), on target " + s.kcalHits + "/" + s.n + " days",
+        "Avg protein " + fmt(s.protein) + " g (target " + fmt(s.proteinTarget) + " g), hit " + s.proteinHits + "/" + s.n + " days",
+        "Lift days " + s.lifts,
+        prevAvgW && endAvgW ? "Weight change " + fmt1(endAvgW - prevAvgW) + " lb (7-day avg " + fmt1(endAvgW) + " lb)" : "Weight change: not enough weigh-ins"]
+        .concat([...ul.children].map((li) => "- " + li.textContent));
+      const text = lines.join("\n");
+      try { await navigator.clipboard.writeText(text); copy.textContent = "Copied"; }
+      catch (e) { copy.textContent = "Couldn't copy on this browser"; }
+      setTimeout(() => { copy.textContent = "Copy this report"; }, 2000);
+    });
+    dc.append(copy);
+    main.append(dc);
+    $("#stamp").textContent = "Reports use the foods you ticked off, extra food you logged and your check-ins. Targets on unanswered days use your average day.";
+  }
+
+  // ------------------------------------------------------------ start
   async function getJSON(path) {
     const r = await fetch(path + "?t=" + Date.now(), { cache: "no-store" });
     if (!r.ok) throw new Error(path + " " + r.status);
@@ -417,25 +1076,28 @@ code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padd
   }
 
   async function start() {
+    const h = location.hash.replace("#", "");
+    tab = h === "progress" || h === "week" ? h : (h.startsWith("d-") ? "today" : load("nelson-tab", "today"));
     try {
       const index = await getJSON("plans/index.json");
-      const dates = (index.dates || []).slice(0, 14);
-      const loadedPlans = await Promise.all(dates.map((d) => getJSON("plans/" + d + ".json").catch(() => null)));
-      plans = loadedPlans.filter((p) => p && p.date && p.meals);
-      loaded = true;
+      const dates = (index.dates || []).slice(0, 30);
+      const loaded = await Promise.all(dates.map((d) => getJSON("plans/" + d + ".json").catch(() => null)));
+      plans = loaded.filter((p) => p && p.date && p.meals).sort((a, b) => a.date < b.date ? 1 : -1);
       if (!plans.length) {
         showState("No plans yet", "The daily update hasn't published a plan yet. Check back after 6 AM.");
         return;
       }
-      if (!current || !plans.some((p) => p.date === current)) current = pickDefault();
+      current = pickDefault();
       render();
     } catch (e) {
       showState("Couldn't load your plans", "Check your connection and reload the page.");
     }
   }
   window.addEventListener("hashchange", () => {
-    const want = (location.hash || "").replace(/^#d-/, "");
-    if (plans.some((p) => p.date === want)) { current = want; render(); }
+    const h = location.hash.replace("#", "");
+    if (h === "progress" || h === "week") { if (tab !== h) { tab = h; render(); } return; }
+    const want = h.replace(/^d-/, "");
+    if (plans.some((p) => p.date === want)) { tab = "today"; current = want; render(); }
   });
   start();
 })();
