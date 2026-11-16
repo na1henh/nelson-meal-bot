@@ -38,6 +38,18 @@ home-screen widget (see `WIDGET.md`). No computer has to be on.
   website shows an "Older plan" warning above the last plan.
 - To run it by hand: the repository's Actions tab > Daily meal plan > Run workflow.
 
+## Ask chat (on the website)
+
+The website's **Ask** button opens a small chat about the day on screen: swaps when something is
+gone, how much protein is left, snack and dessert ideas. It sends the day's plan, the full menu with
+nutrition (`docs/menus/<date>.json`, published by the daily workflow) and the foods ticked off so far
+to Claude (`claude-opus-5-5`, low effort, prompt caching on the plan and menu).
+
+- It uses your own Anthropic API key (console.anthropic.com > API keys), pay-as-you-go: roughly a
+  few cents per question. The key is stored only in that phone's browser storage and sent only to
+  Anthropic; it is never in this repository. Tap **Key** in the chat to replace or remove it.
+- To use a cheaper model, change `MODEL` at the top of `docs/chat.js` (for example `claude-haiku-5-5`).
+
 ## Weigh-ins (calories tune themselves)
 
 The calorie formula is only a starting guess, often off by a few hundred calories for lifters. Weigh
