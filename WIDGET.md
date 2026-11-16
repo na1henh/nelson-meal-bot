@@ -2,10 +2,10 @@
 
 The daily workflow publishes a small summary file:
 
-    https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json
+    https://na1henh.github.io/nelson-meal-bot/widget.json
 
 Open that link on your phone first. If you see text starting with `{"date":`, the widget will work.
-Replace `YOUR-USERNAME` and `YOUR-REPO` everywhere below with your own.
+Your site is na1henh.github.io/nelson-meal-bot.
 
 ## 1. Install
 
@@ -22,12 +22,12 @@ colour to taste.
 
 | Line | Formula |
 |---|---|
-| Title | `$wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".label")$` |
-| Totals | `$wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".kcal")$ kcal · $wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".protein")$ g protein` |
-| Lunch heading | `Lunch · $wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".lunch_place")$` |
-| Lunch items | `$wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".lunch")$` |
-| Dinner heading | `Dinner · $wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".dinner_place")$` |
-| Dinner items | `$wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".dinner")$` |
+| Title | `$wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".label")$` |
+| Totals | `$wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".kcal")$ kcal · $wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".protein")$ g protein` |
+| Lunch heading | `Lunch · $wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".lunch_place")$` |
+| Lunch items | `$wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".lunch")$` |
+| Dinner heading | `Dinner · $wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".dinner_place")$` |
+| Dinner items | `$wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".dinner")$` |
 
 Set the item lines to **multiple lines** (Text > Lines > a number like 3) so long lists wrap.
 
@@ -39,12 +39,12 @@ Optional extras the file also has: `.target_kcal`, `.target_protein`, `.lunch_kc
 Add one more text line with this formula. It shows nothing on a normal day and a warning when the
 newest plan isn't today's (for example when OU's menu site was down):
 
-    $if(wg("https://YOUR-USERNAME.github.io/YOUR-REPO/widget.json", json, ".date") != df("yyyy-MM-dd"), "Older plan - today's isn't out yet", "")$
+    $if(wg("https://na1henh.github.io/nelson-meal-bot/widget.json", json, ".date") != df("yyyy-MM-dd"), "Older plan - today's isn't out yet", "")$
 
 ## 4. Tap to open the full plan
 
 Select the widget's root layer > **Touch** > **+** > Action: **Open link** > paste
-`https://YOUR-USERNAME.github.io/YOUR-REPO/` . Tapping the widget then opens the full page, where you
+`https://na1henh.github.io/nelson-meal-bot/` . Tapping the widget then opens the full page, where you
 can tick off foods as you eat them.
 
 ## 5. Save and refresh
