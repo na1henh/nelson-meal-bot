@@ -1,0 +1,63 @@
+name: Daily meal plan
+
+# Builds today's plan and publishes it to the website (docs/) and the widget file.
+# Times are UTC: 11:00 = 6 AM Eastern (7 AM in summer), 16:00 = 11 AM Eastern (noon in summer).
+# The second run is a retry for mornings when OU's menu site is down; it does nothing
+# if the first run already published today's plan.
+on:
+  schedule:
+    - cron: "0 11 * * *"
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-plan
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build and publish today's plan
+        env:
+          NELSON_PROFILE: ${{ secrets.NELSON_PROFILE }}
+        run: |
+          TODAY=$(TZ=America/New_York date +%F)
+          echo "TODAY=$TODAY" >> "$GITHUB_ENV"
+          if [ -f "docs/plans/$TODAY.json" ]; then
+            echo "Today's plan is already published."
+            exit 0
+          fi
+          if [ -z "$NELSON_PROFILE" ]; then
+            echo "::error::The NELSON_PROFILE secret is missing (Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+          for attempt in 1 2; do
+            if python nelson_bot.py --patient --date "$TODAY" --publish-dir docs; then
+              exit 0
+            fi
+            echo "Attempt $attempt got no usable menu."
+          done
+          echo "::warning::No plan for $TODAY: Nelson may be closed or OU's menu site is down."
+
+      - name: Save the plan and the nutrition cache
+        run: |
+          git config user.name "meal-plan-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs .cache
+          if git diff --cached --quiet; then
+            echo "Nothing new to save."
+          else
+            git commit -m "Meal plan for $TODAY"
+            git push
+          fi

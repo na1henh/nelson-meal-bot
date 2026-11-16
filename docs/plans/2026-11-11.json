@@ -1,0 +1,452 @@
+{
+ "date": "2026-11-11",
+ "generated": "2026-11-11T14:29",
+ "label": "Wednesday, November 11",
+ "meals": [
+  {
+   "backups": [
+    {
+     "kcal": 118,
+     "name": "Verde Chicken",
+     "protein": 23.6,
+     "serving": "4 OZW",
+     "station": "Salad Bar"
+    },
+    {
+     "kcal": 90,
+     "name": "Deli Turkey",
+     "protein": 18,
+     "serving": "3 OZW",
+     "station": "Salad Bar"
+    },
+    {
+     "kcal": 213,
+     "name": "Cheese Burger",
+     "protein": 14.3,
+     "serving": "1 EACH",
+     "station": "Smoke N Flames"
+    }
+   ],
+   "items": [
+    {
+     "added_sugar": 0,
+     "carbs": 1,
+     "dessert": false,
+     "fat": 7,
+     "fiber": 0,
+     "id": "278002*4",
+     "kcal": 162,
+     "name": "Marinated Chicken Breast",
+     "portion": "4 oz",
+     "produce_g": 0,
+     "protein": 25.3,
+     "sat_fat": 0.9,
+     "serving": "4 OZW",
+     "servings": 1,
+     "sodium": 372.2,
+     "station": "Smoke N Flames",
+     "tags": [
+      "NG"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 107,
+     "dessert": false,
+     "fat": 14,
+     "fiber": 5,
+     "id": "407308*6",
+     "kcal": 632,
+     "name": "Penne Noodles",
+     "portion": "12 oz (2 x 6 OZW)",
+     "produce_g": 0,
+     "protein": 17.8,
+     "sat_fat": 0.8,
+     "serving": "6 OZW",
+     "servings": 2,
+     "sodium": 0,
+     "station": "Kalamata Leaf",
+     "tags": [
+      "VT",
+      "VN"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 23.7,
+     "dessert": false,
+     "fat": 3.1,
+     "fiber": 1.8,
+     "id": "258146*1",
+     "kcal": 156,
+     "name": "Artichoke Pizza",
+     "portion": "1 slice",
+     "produce_g": 0,
+     "protein": 7.8,
+     "sat_fat": 1.5,
+     "serving": "1 SLICE",
+     "servings": 1,
+     "sodium": 310,
+     "station": "Kalamata Leaf",
+     "tags": [
+      "M",
+      "VT"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 11.1,
+     "dessert": false,
+     "fat": 0.9,
+     "fiber": 7.2,
+     "id": "438037*4",
+     "kcal": 57,
+     "name": "Romaine Lettuce",
+     "portion": "12 oz (3 x 4 OZW)",
+     "produce_g": 340.2,
+     "protein": 4.2,
+     "sat_fat": 0,
+     "serving": "4 OZW",
+     "servings": 3,
+     "sodium": 27.3,
+     "station": "Salad Bar",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 21.6,
+     "dessert": false,
+     "fat": 0,
+     "fiber": 6.3,
+     "id": "438134*3",
+     "kcal": 108,
+     "name": "Whole Baby Dill Carrots",
+     "portion": "9 oz (3 x 3 OZW)",
+     "produce_g": 255.2,
+     "protein": 3,
+     "sat_fat": 0,
+     "serving": "3 OZW",
+     "servings": 3,
+     "sodium": 186.3,
+     "station": "Kalamata Leaf",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ]
+    },
+    {
+     "added_sugar": 1.4,
+     "carbs": 2.7,
+     "dessert": false,
+     "fat": 20.5,
+     "fiber": 0.2,
+     "id": "277502*3",
+     "kcal": 235,
+     "name": "Chicken Salad",
+     "portion": "3 oz",
+     "produce_g": 0,
+     "protein": 10.1,
+     "sat_fat": 3,
+     "serving": "3 OZW",
+     "servings": 1,
+     "sodium": 313.9,
+     "station": "Salad Bar",
+     "tags": [
+      "NG",
+      "E",
+      "S"
+     ]
+    }
+   ],
+   "meal": "lunch",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1398,
+    "protein": 71
+   },
+   "totals": {
+    "added_sugar": 1.4,
+    "carbs": 167.1,
+    "fat": 45.5,
+    "fiber": 20.5,
+    "kcal": 1350,
+    "produce_g": 595.4,
+    "protein": 68.2,
+    "sat_fat": 6.2,
+    "sodium": 1209.7
+   }
+  },
+  {
+   "backups": [
+    {
+     "kcal": 118,
+     "name": "Verde Chicken",
+     "protein": 23.6,
+     "serving": "4 OZW",
+     "station": "Salad Bar"
+    },
+    {
+     "kcal": 90,
+     "name": "Deli Turkey",
+     "protein": 18,
+     "serving": "3 OZW",
+     "station": "Salad Bar"
+    },
+    {
+     "kcal": 213,
+     "name": "Cheese Burger",
+     "protein": 14.3,
+     "serving": "1 EACH",
+     "station": "Smoke N Flames"
+    }
+   ],
+   "items": [
+    {
+     "added_sugar": 0.2,
+     "carbs": 35.8,
+     "dessert": false,
+     "fat": 12.4,
+     "fiber": 2.7,
+     "id": "208007*1",
+     "kcal": 331,
+     "name": "Hamburger Pizza",
+     "portion": "1 slice",
+     "produce_g": 0,
+     "protein": 17.3,
+     "sat_fat": 5.7,
+     "serving": "1 SLICE",
+     "servings": 1,
+     "sodium": 580.5,
+     "station": "Kalamata Leaf",
+     "tags": [
+      "M",
+      "E",
+      "S"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 1,
+     "dessert": false,
+     "fat": 7,
+     "fiber": 0,
+     "id": "278002*4",
+     "kcal": 162,
+     "name": "Marinated Chicken Breast",
+     "portion": "4 oz",
+     "produce_g": 0,
+     "protein": 25.3,
+     "sat_fat": 0.9,
+     "serving": "4 OZW",
+     "servings": 1,
+     "sodium": 372.2,
+     "station": "Smoke N Flames",
+     "tags": [
+      "NG"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 107,
+     "dessert": false,
+     "fat": 14,
+     "fiber": 5,
+     "id": "407308*6",
+     "kcal": 632,
+     "name": "Penne Noodles",
+     "portion": "12 oz (2 x 6 OZW)",
+     "produce_g": 0,
+     "protein": 17.8,
+     "sat_fat": 0.8,
+     "serving": "6 OZW",
+     "servings": 2,
+     "sodium": 0,
+     "station": "Kalamata Leaf",
+     "tags": [
+      "VT",
+      "VN"
+     ]
+    },
+    {
+     "added_sugar": 0.6,
+     "carbs": 14.1,
+     "dessert": false,
+     "fat": 12.9,
+     "fiber": 5.1,
+     "id": "438132*3",
+     "kcal": 186,
+     "name": "Tuscan Roasted Broccoli",
+     "portion": "9 oz (3 x 3 OZW)",
+     "produce_g": 255.2,
+     "protein": 8.7,
+     "sat_fat": 2.4,
+     "serving": "3 OZW",
+     "servings": 3,
+     "sodium": 255.6,
+     "station": "Kalamata Leaf",
+     "tags": [
+      "NG",
+      "M",
+      "VT"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 34,
+     "dessert": false,
+     "fat": 2.1,
+     "fiber": 2.8,
+     "id": "771456*1",
+     "kcal": 163.5,
+     "name": "Granola",
+     "portion": "1.5 oz (1.5 x 1 OZW)",
+     "produce_g": 0,
+     "protein": 3.6,
+     "sat_fat": 0.3,
+     "serving": "1 OZW",
+     "servings": 1.5,
+     "sodium": 106.4,
+     "station": "Nutritional Information",
+     "tags": [
+      "NG",
+      "VT"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 4.8,
+     "dessert": false,
+     "fat": 0.3,
+     "fiber": 2.1,
+     "id": "438030*2",
+     "kcal": 27,
+     "name": "Chopped Lettuce",
+     "portion": "6 oz (3 x 2 OZW)",
+     "produce_g": 170.1,
+     "protein": 2.4,
+     "sat_fat": 0,
+     "serving": "2 OZW",
+     "servings": 3,
+     "sodium": 47.7,
+     "station": "Salad Bar",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ]
+    },
+    {
+     "added_sugar": 11,
+     "carbs": 15.8,
+     "dessert": true,
+     "fat": 2.1,
+     "fiber": 2.8,
+     "id": "775474*3",
+     "kcal": 82,
+     "name": "Chocolate Pudding",
+     "portion": "3 oz",
+     "produce_g": 0,
+     "protein": 0.7,
+     "sat_fat": 0.3,
+     "serving": "3 OZW",
+     "servings": 1,
+     "sodium": 130.6,
+     "station": "Nutritional Information",
+     "tags": [
+      "NG",
+      "M",
+      "S",
+      "VT"
+     ]
+    },
+    {
+     "added_sugar": 0,
+     "carbs": 4.2,
+     "dessert": false,
+     "fat": 0.3,
+     "fiber": 1.8,
+     "id": "438010*1",
+     "kcal": 21,
+     "name": "Cauliflower Florets",
+     "portion": "3 oz (3 x 1 OZW)",
+     "produce_g": 85.1,
+     "protein": 1.5,
+     "sat_fat": 0,
+     "serving": "1 OZW",
+     "servings": 3,
+     "sodium": 24.9,
+     "station": "Salad Bar",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ]
+    }
+   ],
+   "meal": "dinner",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1598,
+    "protein": 82
+   },
+   "totals": {
+    "added_sugar": 11.8,
+    "carbs": 216.8,
+    "fat": 51.1,
+    "fiber": 22.4,
+    "kcal": 1604.5,
+    "produce_g": 510.3,
+    "protein": 77.3,
+    "sat_fat": 10.4,
+    "sodium": 1517.9
+   }
+  }
+ ],
+ "missing": [
+  "BBQ Pulled Pork",
+  "French Toast Sticks",
+  "Sausage Links",
+  "Sweet  Italian Sausage Link",
+  "Vegetable Western Egg Scramble"
+ ],
+ "notes": [
+  "No fish in today's plan. Aim for 2 non-fried fish meals a week (salmon is ideal).",
+  "Sodium runs high (dining-hall food usually does): drink extra water and skip added sauces/dressings.",
+  "Portions are by weight (OZW = oz by weight): 4 oz of meat is about the size of your palm; 1 cup of rice/pasta is about a fist.",
+  "Lift consistently and aim for 7-9 h of sleep - the surplus only turns into muscle with training."
+ ],
+ "place": "Nelson Court",
+ "targets": {
+  "added_sugar": 75,
+  "bmr": 1771,
+  "carbs": 394,
+  "fat": 90,
+  "fat_floor": 67,
+  "fiber": 42,
+  "kcal": 2996,
+  "kcal_adjust": 0,
+  "produce_g": 600,
+  "protein": 153,
+  "sat_fat": 33,
+  "sodium": 2300,
+  "tdee": 2746
+ },
+ "totals": {
+  "added_sugar": 13.2,
+  "carbs": 383.8,
+  "fat": 96.6,
+  "fiber": 42.9,
+  "kcal": 2954.5,
+  "produce_g": 1105.7,
+  "protein": 145.5,
+  "sat_fat": 16.6,
+  "sodium": 2727.6
+ }
+}

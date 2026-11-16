@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2e6a44">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Nelson Meal Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one phone-width column, like a tray ticket - a day score at the top, then each meal as a tappable checklist grouped by station. */
+:root {
+  --paper: #f4f6f0;
+  --card: #ffffff;
+  --ink: #16201a;
+  --muted: #5d6a61;
+  --rule: #dce2d8;
+  --accent: #2e6a44;
+  --accent-soft: #e2ece3;
+  --protein: #a85f1c;
+  --protein-soft: #f3e6d6;
+  --warn: #a0451b;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1411; --card: #171e19; --ink: #e6ebe5; --muted: #98a59b; --rule: #29332c;
+    --accent: #72c08f; --accent-soft: #1b2a20; --protein: #e3a463; --protein-soft: #2d2216; --warn: #ec8a5a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1411; --card: #171e19; --ink: #e6ebe5; --muted: #98a59b; --rule: #29332c;
+  --accent: #72c08f; --accent-soft: #1b2a20; --protein: #e3a463; --protein-soft: #2d2216; --warn: #ec8a5a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+}
+.wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 20px;
+}
+.num { font-variant-numeric: tabular-nums; }
+.stack { display: grid; gap: 22px; min-width: 0; }
+
+header { display: grid; gap: 6px; }
+.eyebrow {
+  font-family: var(--font-display);
+  font-stretch: 85%;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-stretch: 78%;
+  font-weight: 800;
+  font-size: clamp(30px, 8.5vw, 40px);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.days {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-block: 6px 2px;
+  scrollbar-width: none;
+}
+.days::-webkit-scrollbar { display: none; }
+.day {
+  flex: none;
+  font: 600 14px/1 var(--font-body);
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.day[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.day:focus-visible, .item:focus-visible, summary:focus-visible, .reset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Day score */
+.score {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+}
+.meter { display: grid; gap: 6px; }
+.meter-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.meter-label { font: 700 13px/1 var(--font-display); font-stretch: 85%; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.meter-val { font-family: var(--font-display); font-stretch: 80%; font-weight: 800; font-size: 26px; line-height: 1; }
+.meter-val small { font-family: var(--font-body); font-weight: 400; font-size: 14px; color: var(--muted); }
+.bar { position: relative; height: 10px; background: var(--accent-soft); border-radius: 999px; overflow: hidden; }
+.bar i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--accent); border-radius: 999px; transition: width .35s ease; }
+.bar.protein { background: var(--protein-soft); }
+.bar.protein i { background: var(--protein); }
+.bar b { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--ink); opacity: .35; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; color: var(--muted); }
+.facts strong { color: var(--ink); font-weight: 600; }
+.facts .over strong { color: var(--warn); }
+.hint { font-size: 13px; color: var(--muted); margin: 0; }
+.stale { background: var(--protein-soft); color: var(--ink); border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0; }
+.stale strong { color: var(--warn); }
+
+/* Meals */
+.meal { display: grid; gap: 10px; }
+.meal-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+.meal-head h2 { margin: 0; font-family: var(--font-display); font-stretch: 78%; font-weight: 800; font-size: 26px; line-height: 1; }
+.meal-head span { font-size: 14px; color: var(--muted); }
+.station { font: 700 12px/1 var(--font-display); font-stretch: 85%; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-top: 6px; }
+.items { display: grid; gap: 8px; }
+.item {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+}
+.check {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 2px solid var(--rule);
+  display: grid; place-items: center;
+  margin-top: 1px;
+}
+.check svg { width: 14px; height: 14px; opacity: 0; }
+.item[aria-pressed="true"] { background: var(--accent-soft); border-color: transparent; }
+.item[aria-pressed="true"] .check { background: var(--accent); border-color: var(--accent); }
+.item[aria-pressed="true"] .check svg { opacity: 1; }
+.item[aria-pressed="true"] .name { text-decoration: line-through; text-decoration-color: var(--muted); }
+.item-body { display: grid; gap: 2px; min-width: 0; }
+.name { font-weight: 600; font-size: 16px; overflow-wrap: anywhere; }
+.portion { font-size: 14px; color: var(--muted); }
+.macros { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 2px 10px; margin-top: 2px; }
+.macros .k { color: var(--ink); font-weight: 600; }
+.macros .p { color: var(--protein); font-weight: 600; }
+.tag { font: 700 11px/1 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--protein); margin-left: 6px; }
+.meal-total { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 0 2px; }
+.meal-total strong { color: var(--ink); }
+details { border: 1px dashed var(--rule); border-radius: 12px; padding: 10px 12px; font-size: 14px; }
+summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+details ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); display: grid; gap: 4px; }
+.closed { color: var(--muted); font-style: italic; margin: 0; }
+
+.notes { display: grid; gap: 8px; }
+.notes h2 { margin: 0; font-family: var(--font-display); font-stretch: 78%; font-weight: 800; font-size: 22px; }
+.notes ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--ink); max-width: 65ch; }
+.reset { justify-self: start; font: 600 14px/1 var(--font-body); color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+footer { font-size: 12px; color: var(--muted); display: grid; gap: 4px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.state { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 18px 16px; display: grid; gap: 6px; }
+.state h2 { margin: 0; font-family: var(--font-display); font-stretch: 80%; font-size: 22px; }
+.state p { margin: 0; color: var(--muted); }
+code { font-size: 13px; background: var(--accent-soft); border-radius: 6px; padding: 1px 5px; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow" id="place">Nelson Court · Maingain plan</div>
+    <h1 id="title">Today's plan</h1>
+    <div class="days" id="days" role="group" aria-label="Choose a day"></div>
+  </header>
+  <main id="main" class="stack">
+    <section class="state" id="state">
+      <h2>Loading your plan</h2>
+      <p>Getting the latest plan from your planner.</p>
+    </section>
+  </main>
+  <footer>
+    <span id="stamp">Menu and nutrition from Ohio University Culinary Services labels. Values are approximate and menus can change.</span>
+    <span>Personal planner. Not an official Ohio University page.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const fmt = (n) => Math.round(n).toLocaleString("en-US");
+  const CHECK = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="var(--card)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  let plans = [], current = null, loaded = false;
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function eatenKey(date) { return "nelson-eaten-" + date; }
+  function getEaten(date) {
+    try { return new Set(JSON.parse(localStorage.getItem(eatenKey(date)) || "[]")); } catch (e) { return new Set(); }
+  }
+  function setEaten(date, set) {
+    try { localStorage.setItem(eatenKey(date), JSON.stringify([...set])); } catch (e) {}
+  }
+  function showState(title, body) {
+    const main = $("#main");
+    main.replaceChildren();
+    const s = el("section", "state");
+    s.append(el("h2", null, title));
+    const p = el("p"); p.innerHTML = body; s.append(p);
+    main.append(s);
+  }
+
+  function pickDefault() {
+    const want = (location.hash || "").replace(/^#d-/, "");
+    if (want && plans.some((p) => p.date === want)) return want;
+    const d = new Date();
+    const today = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    if (plans.some((p) => p.date === today)) return today;
+    return plans[0].date;
+  }
+
+  function renderDays() {
+    const box = $("#days");
+    box.replaceChildren();
+    if (plans.length < 2) return;
+    [...plans].reverse().forEach((p) => {
+      const b = el("button", "day", p.label ? p.label.replace(/,.*$/, "").slice(0, 3) + " " + p.date.slice(5).replace("-", "/") : p.date);
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(p.date === current));
+      b.addEventListener("click", () => { current = p.date; history.replaceState(null, "", "#d-" + p.date); render(); });
+      box.append(b);
+    });
+  }
+
+  function render() {
+    const plan = plans.find((p) => p.date === current);
+    if (!plan) return;
+    renderDays();
+    $("#title").textContent = plan.label || plan.date;
+    $("#place").textContent = (plan.place || "Nelson Court") + " · Maingain plan";
+    const eaten = getEaten(plan.date);
+    const T = plan.targets || {};
+    const main = $("#main");
+    main.replaceChildren();
+
+    // ---- older-plan warning
+    const now = new Date();
+    const todayStr = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+    if (plan.date !== todayStr) {
+      const w = el("p", "stale");
+      w.append(el("strong", null, plan.date < todayStr ? "Older plan. " : "Future plan. "));
+      w.append(plan.date < todayStr
+        ? "This is the plan for " + (plan.label || plan.date) + ". Today's plan hasn't arrived yet, so Nelson's menu may not match."
+        : "This is the plan for " + (plan.label || plan.date) + ", not today.");
+      main.append(w);
+    }
+
+    // ---- score
+    let eK = 0, eP = 0;
+    plan.meals.forEach((m) => m.items.forEach((it) => {
+      if (eaten.has(m.meal + ":" + it.id)) { eK += it.kcal; eP += it.protein; }
+    }));
+    const score = el("section", "score");
+    score.setAttribute("aria-label", "Today's progress");
+    const meter = (label, val, target, planned, unit, cls) => {
+      const m = el("div", "meter");
+      const top = el("div", "meter-top");
+      top.append(el("span", "meter-label", label));
+      const v = el("span", "meter-val num");
+      v.textContent = fmt(val) + unit;
+      v.append(el("small", null, " / " + fmt(target) + unit));
+      top.append(v);
+      const bar = el("div", "bar" + (cls ? " " + cls : ""));
+      bar.setAttribute("role", "progressbar");
+      bar.setAttribute("aria-valuemin", "0");
+      bar.setAttribute("aria-valuemax", String(Math.round(target)));
+      bar.setAttribute("aria-valuenow", String(Math.round(val)));
+      const fill = el("i"); fill.style.width = Math.min(100, (val / target) * 100) + "%";
+      const tick = el("b"); tick.style.left = "calc(" + Math.min(100, (planned / target) * 100) + "% - 1px)";
+      tick.title = "Planned";
+      bar.append(fill, tick);
+      m.append(top, bar);
+      return m;
+    };
+    score.append(meter("Calories eaten", eK, T.kcal, plan.totals.kcal, "", ""));
+    score.append(meter("Protein eaten", eP, T.protein, plan.totals.protein, " g", "protein"));
+    const facts = el("div", "facts num");
+    const fact = (label, val, target, unit, mode) => {
+      const s = el("span");
+      const over = mode === "max" ? val > target : false;
+      if (over) s.className = "over";
+      s.append(label + " ");
+      s.append(el("strong", null, fmt(val) + unit));
+      s.append(" / " + (mode === "max" ? "≤" : mode === "min" ? "≥" : "") + fmt(target) + unit);
+      return s;
+    };
+    facts.append(fact("Planned", plan.totals.kcal, T.kcal, " kcal"));
+    facts.append(fact("Fiber", plan.totals.fiber, T.fiber, " g", "min"));
+    facts.append(fact("Sodium", plan.totals.sodium, T.sodium, " mg", "max"));
+    if (plan.totals.produce_g != null && T.produce_g) facts.append(fact("Fruit & veg", plan.totals.produce_g, T.produce_g, " g", "min"));
+    facts.append(fact("Fat", plan.totals.fat, T.fat, " g"));
+    score.append(facts);
+    score.append(el("p", "hint", "Tap a food when you eat it. The line on each bar is what the plan adds up to."));
+    main.append(score);
+
+    // ---- meals
+    plan.meals.forEach((m) => {
+      const sec = el("section", "meal");
+      const head = el("div", "meal-head");
+      head.append(el("h2", null, m.meal.charAt(0).toUpperCase() + m.meal.slice(1)));
+      head.append(el("span", "num", (m.place ? m.place + " · " : "") + "aim " + fmt(m.target.kcal) + " kcal · " + fmt(m.target.protein) + " g protein"));
+      sec.append(head);
+      if (!m.served || !m.items.length) {
+        sec.append(el("p", "closed", (m.place || plan.place || "Nelson Court") + " isn't serving this meal today."));
+        main.append(sec);
+        return;
+      }
+      const groups = new Map();
+      m.items.forEach((it) => { if (!groups.has(it.station)) groups.set(it.station, []); groups.get(it.station).push(it); });
+      groups.forEach((items, station) => {
+        sec.append(el("div", "station", station));
+        const list = el("div", "items");
+        items.forEach((it) => {
+          const key = m.meal + ":" + it.id;
+          const b = el("button", "item");
+          b.type = "button";
+          b.setAttribute("aria-pressed", String(eaten.has(key)));
+          const c = el("span", "check"); c.innerHTML = CHECK;
+          const body = el("span", "item-body");
+          const name = el("span", "name", it.name);
+          if (it.dessert) name.append(el("span", "tag", "Dessert"));
+          body.append(name, el("span", "portion", it.portion));
+          const mac = el("span", "macros num");
+          mac.append(el("span", "k", fmt(it.kcal) + " kcal"), el("span", "p", fmt(it.protein) + " g protein"),
+                     el("span", null, fmt(it.carbs) + " g carbs"), el("span", null, fmt(it.fat) + " g fat"));
+          body.append(mac);
+          b.append(c, body);
+          b.addEventListener("click", () => {
+            const set = getEaten(plan.date);
+            set.has(key) ? set.delete(key) : set.add(key);
+            setEaten(plan.date, set);
+            const y = window.scrollY;
+            render();
+            window.scrollTo(0, y);
+          });
+          list.append(b);
+        });
+        sec.append(list);
+      });
+      const tot = el("div", "meal-total num");
+      tot.append("Meal total ");
+      tot.append(el("strong", null, fmt(m.totals.kcal) + " kcal"));
+      tot.append(el("span", null, fmt(m.totals.protein) + " g protein"));
+      tot.append(el("span", null, fmt(m.totals.fiber) + " g fiber"));
+      tot.append(el("span", null, fmt(m.totals.sodium) + " mg sodium"));
+      sec.append(tot);
+      if (m.backups && m.backups.length) {
+        const d = el("details");
+        d.append(el("summary", null, "If a main is gone, swap in"));
+        const ul = el("ul");
+        m.backups.forEach((bk) => ul.append(el("li", "num",
+          bk.name + " (" + bk.station + "): " + fmt(bk.protein) + " g protein, " + fmt(bk.kcal) + " kcal per " + bk.serving)));
+        d.append(ul);
+        sec.append(d);
+      }
+      main.append(sec);
+    });
+
+    // ---- notes
+    if (plan.notes && plan.notes.length) {
+      const n = el("section", "notes");
+      n.append(el("h2", null, "Notes"));
+      const ul = el("ul");
+      plan.notes.forEach((t) => ul.append(el("li", null, t)));
+      n.append(ul);
+      main.append(n);
+    }
+    if (eaten.size) {
+      const r = el("button", "reset", "Clear checked foods");
+      r.type = "button";
+      r.addEventListener("click", () => { setEaten(plan.date, new Set()); render(); });
+      main.append(r);
+    }
+    $("#stamp").textContent = "Planned " + (plan.generated || "").replace("T", " at ") + ". " +
+      "Menu and nutrition from Ohio University Culinary Services labels. Values are approximate and menus can change.";
+  }
+
+  async function getJSON(path) {
+    const r = await fetch(path + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(path + " " + r.status);
+    return r.json();
+  }
+
+  async function start() {
+    try {
+      const index = await getJSON("plans/index.json");
+      const dates = (index.dates || []).slice(0, 14);
+      const loadedPlans = await Promise.all(dates.map((d) => getJSON("plans/" + d + ".json").catch(() => null)));
+      plans = loadedPlans.filter((p) => p && p.date && p.meals);
+      loaded = true;
+      if (!plans.length) {
+        showState("No plans yet", "The daily update hasn't published a plan yet. Check back after 6 AM.");
+        return;
+      }
+      if (!current || !plans.some((p) => p.date === current)) current = pickDefault();
+      render();
+    } catch (e) {
+      showState("Couldn't load your plans", "Check your connection and reload the page.");
+    }
+  }
+  window.addEventListener("hashchange", () => {
+    const want = (location.hash || "").replace(/^#d-/, "");
+    if (plans.some((p) => p.date === want)) { current = want; render(); }
+  });
+  start();
+})();
+</script>
+</body>
+</html>

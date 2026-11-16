@@ -1,0 +1,11 @@
+# Personal data stays on this PC (the GitHub copy reads your stats from the NELSON_PROFILE secret).
+profile.json
+weights.json
+/plans/
+reports/
+research_notes/
+cloud/
+phone/
+today_run.log
+__pycache__/
+*.pyc
