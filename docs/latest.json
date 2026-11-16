@@ -1,8 +1,8 @@
 {
- "date": "2026-11-15",
+ "date": "2026-11-16",
  "place": "Nelson Court",
- "label": "Sunday, November 15",
- "generated": "2026-11-16T04:23",
+ "label": "Monday, November 16",
+ "generated": "2026-11-16T14:49",
  "targets": {
   "bmr": 1771,
   "tdee": 2746,
@@ -29,26 +29,70 @@
    },
    "items": [
     {
-     "id": "257603*4",
-     "name": "Vgtrn Homemade Black Bean Burgers",
+     "id": "278002*4",
+     "name": "Marinated Chicken Breast",
      "station": "Smoke N Flames",
-     "servings": 2.0,
+     "servings": 1.5,
      "serving": "4 OZW",
-     "portion": "8 oz (2 x 4 OZW)",
+     "portion": "6 oz (1.5 x 4 OZW)",
      "tags": [
-      "E",
-      "VT"
+      "NG"
      ],
      "dessert": false,
-     "kcal": 544.0,
-     "protein": 37.4,
-     "carbs": 116.8,
-     "fat": 10.2,
-     "fiber": 41.4,
-     "sodium": 498.4,
-     "sat_fat": 2.2,
+     "kcal": 243.0,
+     "protein": 38.0,
+     "carbs": 1.5,
+     "fat": 10.5,
+     "fiber": 0.0,
+     "sodium": 558.3,
+     "sat_fat": 1.4,
      "added_sugar": 0.0,
      "produce_g": 0.0
+    },
+    {
+     "id": "407309*6",
+     "name": "Ziti Noodles",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "6 OZW",
+     "portion": "12 oz (2 x 6 OZW)",
+     "tags": [
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 794.0,
+     "protein": 22.4,
+     "carbs": 134.4,
+     "fat": 17.6,
+     "fiber": 6.4,
+     "sodium": 0.0,
+     "sat_fat": 1.0,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "257649*3",
+     "name": "Cranberry Quinoa",
+     "station": "Salad Bar",
+     "servings": 1.5,
+     "serving": "3 OZW",
+     "portion": "4.5 oz (1.5 x 3 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 217.5,
+     "protein": 5.8,
+     "carbs": 36.8,
+     "fat": 4.7,
+     "fiber": 3.9,
+     "sodium": 145.6,
+     "sat_fat": 0.3,
+     "added_sugar": 6.4,
+     "produce_g": 127.6
     },
     {
      "id": "438037*4",
@@ -74,6 +118,141 @@
      "produce_g": 340.2
     },
     {
+     "id": "438105*4",
+     "name": "Roasted Zucchini & Yellow Squash",
+     "station": "Kalamata Leaf",
+     "servings": 1.0,
+     "serving": "4 OZW",
+     "portion": "4 oz",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 98.0,
+     "protein": 1.6,
+     "carbs": 5.3,
+     "fat": 8.6,
+     "fiber": 1.5,
+     "sodium": 12.5,
+     "sat_fat": 1.2,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    }
+   ],
+   "totals": {
+    "kcal": 1409.5,
+    "protein": 72.0,
+    "carbs": 189.1,
+    "fat": 42.2,
+    "fiber": 19.0,
+    "sodium": 743.7,
+    "sat_fat": 3.9,
+    "added_sugar": 6.4,
+    "produce_g": 467.8
+   },
+   "backups": [
+    {
+     "name": "Verde Chicken",
+     "station": "Salad Bar",
+     "serving": "4 OZW",
+     "kcal": 118.0,
+     "protein": 23.6
+    },
+    {
+     "name": "Deli Turkey",
+     "station": "Salad Bar",
+     "serving": "3 OZW",
+     "kcal": 90.0,
+     "protein": 18.0
+    },
+    {
+     "name": "Cheese Burger",
+     "station": "Smoke N Flames",
+     "serving": "1 EACH",
+     "kcal": 213.0,
+     "protein": 14.3
+    }
+   ]
+  },
+  {
+   "meal": "dinner",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1598,
+    "protein": 82
+   },
+   "items": [
+    {
+     "id": "257603*4",
+     "name": "Vgtrn Homemade Black Bean Burgers",
+     "station": "Smoke N Flames",
+     "servings": 2.0,
+     "serving": "4 OZW",
+     "portion": "8 oz (2 x 4 OZW)",
+     "tags": [
+      "E",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 544.0,
+     "protein": 37.4,
+     "carbs": 116.8,
+     "fat": 10.2,
+     "fiber": 41.4,
+     "sodium": 498.4,
+     "sat_fat": 2.2,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "278002*4",
+     "name": "Marinated Chicken Breast",
+     "station": "Smoke N Flames",
+     "servings": 1.5,
+     "serving": "4 OZW",
+     "portion": "6 oz (1.5 x 4 OZW)",
+     "tags": [
+      "NG"
+     ],
+     "dessert": false,
+     "kcal": 243.0,
+     "protein": 38.0,
+     "carbs": 1.5,
+     "fat": 10.5,
+     "fiber": 0.0,
+     "sodium": 558.3,
+     "sat_fat": 1.4,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "775579*3",
+     "name": "Vanilla Pudding",
+     "station": "Nutritional Information",
+     "servings": 1.0,
+     "serving": "3 OZW",
+     "portion": "3 oz",
+     "tags": [
+      "NG",
+      "M",
+      "S",
+      "VT"
+     ],
+     "dessert": true,
+     "kcal": 131.0,
+     "protein": 1.4,
+     "carbs": 17.9,
+     "fat": 6.2,
+     "fiber": 0.0,
+     "sodium": 123.7,
+     "sat_fat": 1.0,
+     "added_sugar": 9.6,
+     "produce_g": 0.0
+    },
+    {
      "id": "407312*6",
      "name": "Bowtie Noodles",
      "station": "Kalamata Leaf",
@@ -96,54 +275,8 @@
      "produce_g": 0.0
     },
     {
-     "id": "278002*4",
-     "name": "Marinated Chicken Breast",
-     "station": "Smoke N Flames",
-     "servings": 1.0,
-     "serving": "4 OZW",
-     "portion": "4 oz",
-     "tags": [
-      "NG"
-     ],
-     "dessert": false,
-     "kcal": 162.0,
-     "protein": 25.3,
-     "carbs": 1.0,
-     "fat": 7.0,
-     "fiber": 0.0,
-     "sodium": 372.2,
-     "sat_fat": 0.9,
-     "added_sugar": 0.0,
-     "produce_g": 0.0
-    },
-    {
-     "id": "497569*3",
-     "name": "Creamy Coleslaw Salad",
-     "station": "Smoke N Flames",
-     "servings": 1.5,
-     "serving": "3 OZW",
-     "portion": "4.5 oz (1.5 x 3 OZW)",
-     "tags": [
-      "NG",
-      "M",
-      "E",
-      "S",
-      "VT"
-     ],
-     "dessert": false,
-     "kcal": 135.0,
-     "protein": 1.5,
-     "carbs": 12.5,
-     "fat": 9.6,
-     "fiber": 2.8,
-     "sodium": 122.2,
-     "sat_fat": 2.0,
-     "added_sugar": 5.4,
-     "produce_g": 0.0
-    },
-    {
-     "id": "438121*3",
-     "name": "California Blend Vegetables",
+     "id": "438154*3",
+     "name": "Green Beans with Garlic & Onions",
      "station": "Kalamata Leaf",
      "servings": 3.0,
      "serving": "3 OZW",
@@ -154,197 +287,15 @@
       "VN"
      ],
      "dessert": false,
-     "kcal": 75.0,
-     "protein": 3.0,
-     "carbs": 12.0,
-     "fat": 0.0,
-     "fiber": 3.0,
-     "sodium": 74.7,
-     "sat_fat": 0.0,
-     "added_sugar": 0.0,
-     "produce_g": 255.2
-    }
-   ],
-   "totals": {
-    "kcal": 1367.0,
-    "protein": 81.0,
-    "carbs": 211.6,
-    "fat": 42.7,
-    "fiber": 57.2,
-    "sodium": 1094.8,
-    "sat_fat": 6.1,
-    "added_sugar": 5.4,
-    "produce_g": 595.4
-   },
-   "backups": [
-    {
-     "name": "Verde Chicken",
-     "station": "Salad Bar",
-     "serving": "4 OZW",
-     "kcal": 118.0,
-     "protein": 23.6
-    },
-    {
-     "name": "Deli Turkey",
-     "station": "Salad Bar",
-     "serving": "3 OZW",
-     "kcal": 90.0,
-     "protein": 18.0
-    },
-    {
-     "name": "Thai Tamarind Chicken",
-     "station": "Bamboo Bowl",
-     "serving": "4 OZW",
-     "kcal": 108.0,
-     "protein": 16.4
-    }
-   ]
-  },
-  {
-   "meal": "dinner",
-   "place": "Nelson Court",
-   "served": true,
-   "target": {
-    "kcal": 1598,
-    "protein": 82
-   },
-   "items": [
-    {
-     "id": "407314*6",
-     "name": "Rainbow Rotini Noodles",
-     "station": "Kalamata Leaf",
-     "servings": 2.0,
-     "serving": "6 OZW",
-     "portion": "12 oz (2 x 6 OZW)",
-     "tags": [
-      "VT",
-      "VN"
-     ],
-     "dessert": false,
-     "kcal": 804.0,
-     "protein": 21.8,
-     "carbs": 131.0,
-     "fat": 20.6,
-     "fiber": 3.2,
-     "sodium": 62.4,
+     "kcal": 201.0,
+     "protein": 7.2,
+     "carbs": 30.3,
+     "fat": 7.8,
+     "fiber": 9.6,
+     "sodium": 16.2,
      "sat_fat": 1.2,
      "added_sugar": 0.0,
-     "produce_g": 0.0
-    },
-    {
-     "id": "277820*3",
-     "name": "Pulled Chicken",
-     "station": "Smoke N Flames",
-     "servings": 3.0,
-     "serving": "3 OZW",
-     "portion": "9 oz (3 x 3 OZW)",
-     "tags": [
-      "NG"
-     ],
-     "dessert": false,
-     "kcal": 255.0,
-     "protein": 60.3,
-     "carbs": 2.4,
-     "fat": 2.4,
-     "fiber": 0.0,
-     "sodium": 127.5,
-     "sat_fat": 0.0,
-     "added_sugar": 0.0,
-     "produce_g": 0.0
-    },
-    {
-     "id": "438080*3",
-     "name": "Broccoli Cuts",
-     "station": "Oucooking",
-     "servings": 3.0,
-     "serving": "3 OZW",
-     "portion": "9 oz (3 x 3 OZW)",
-     "tags": [
-      "NG",
-      "VT",
-      "VN"
-     ],
-     "dessert": false,
-     "kcal": 78.0,
-     "protein": 6.3,
-     "carbs": 12.3,
-     "fat": 0.0,
-     "fiber": 6.3,
-     "sodium": 61.8,
-     "sat_fat": 0.0,
-     "added_sugar": 0.0,
      "produce_g": 255.2
-    },
-    {
-     "id": "775474*3",
-     "name": "Chocolate Pudding",
-     "station": "Nutritional Information",
-     "servings": 1.0,
-     "serving": "3 OZW",
-     "portion": "3 oz",
-     "tags": [
-      "NG",
-      "M",
-      "S",
-      "VT"
-     ],
-     "dessert": true,
-     "kcal": 82.0,
-     "protein": 0.7,
-     "carbs": 15.8,
-     "fat": 2.1,
-     "fiber": 2.8,
-     "sodium": 130.6,
-     "sat_fat": 0.3,
-     "added_sugar": 11.0,
-     "produce_g": 0.0
-    },
-    {
-     "id": "438119*3",
-     "name": "Capri Blend Vegetables",
-     "station": "Oucooking",
-     "servings": 3.0,
-     "serving": "3 OZW",
-     "portion": "9 oz (3 x 3 OZW)",
-     "tags": [
-      "NG",
-      "VT",
-      "VN"
-     ],
-     "dessert": false,
-     "kcal": 72.0,
-     "protein": 3.0,
-     "carbs": 11.7,
-     "fat": 0.0,
-     "fiber": 3.0,
-     "sodium": 60.3,
-     "sat_fat": 0.0,
-     "added_sugar": 0.0,
-     "produce_g": 255.2
-    },
-    {
-     "id": "257505*3",
-     "name": "Hummus",
-     "station": "Salad Bar",
-     "servings": 1.0,
-     "serving": "3 OZW",
-     "portion": "3 oz",
-     "tags": [
-      "NG",
-      "SS",
-      "VT",
-      "VN"
-     ],
-     "dessert": false,
-     "kcal": 286.0,
-     "protein": 7.0,
-     "carbs": 22.1,
-     "fat": 20.8,
-     "fiber": 6.0,
-     "sodium": 379.2,
-     "sat_fat": 2.1,
-     "added_sugar": 0.0,
-     "produce_g": 0.0
     },
     {
      "id": "438091*1",
@@ -371,24 +322,17 @@
     }
    ],
    "totals": {
-    "kcal": 1610.0,
-    "protein": 99.7,
-    "carbs": 203.4,
-    "fat": 46.2,
-    "fiber": 23.7,
-    "sodium": 875.2,
-    "sat_fat": 3.6,
-    "added_sugar": 11.0,
-    "produce_g": 595.4
+    "kcal": 1546.0,
+    "protein": 94.1,
+    "carbs": 232.8,
+    "fat": 50.0,
+    "fiber": 56.2,
+    "sodium": 1250.0,
+    "sat_fat": 6.8,
+    "added_sugar": 9.6,
+    "produce_g": 340.2
    },
    "backups": [
-    {
-     "name": "Marinated Chicken Breast",
-     "station": "Smoke N Flames",
-     "serving": "4 OZW",
-     "kcal": 162.0,
-     "protein": 25.3
-    },
     {
      "name": "Verde Chicken",
      "station": "Salad Bar",
@@ -402,20 +346,27 @@
      "serving": "3 OZW",
      "kcal": 90.0,
      "protein": 18.0
+    },
+    {
+     "name": "Chicken Stir Fry",
+     "station": "Bamboo Bowl",
+     "serving": "6 OZW",
+     "kcal": 198.0,
+     "protein": 18.7
     }
    ]
   }
  ],
  "totals": {
-  "kcal": 2977.0,
-  "protein": 180.7,
-  "carbs": 415.0,
-  "fat": 88.9,
-  "fiber": 80.9,
-  "sodium": 1970.0,
-  "sat_fat": 9.7,
-  "added_sugar": 16.4,
-  "produce_g": 1190.7
+  "kcal": 2955.5,
+  "protein": 166.1,
+  "carbs": 421.9,
+  "fat": 92.2,
+  "fiber": 75.2,
+  "sodium": 1993.8,
+  "sat_fat": 10.6,
+  "added_sugar": 16.0,
+  "produce_g": 808.0
  },
  "notes": [
   "No fish in today's plan. Aim for 2 non-fried fish meals a week (salmon is ideal).",
