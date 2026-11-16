@@ -1,13 +1,15 @@
 name: Daily meal plan
 
 # Builds today's plan and publishes it to the website (docs/) and the widget file.
-# Times are UTC: 11:00 = 6 AM Eastern (7 AM in summer), 16:00 = 11 AM Eastern (noon in summer).
-# The second run is a retry for mornings when OU's menu site is down; it does nothing
-# if the first run already published today's plan.
+# Times are UTC: 11:17 = 6:17 AM Eastern, 13:17 = 8:17 AM, 16:17 = 11:17 AM (an hour later in summer).
+# The later runs are retries for mornings when OU's menu site is down or GitHub skips a
+# scheduled run; each does nothing if today's plan is already published.
+# Minute 17 avoids the top of the hour, when GitHub most often delays or drops scheduled runs.
 on:
   schedule:
-    - cron: "0 11 * * *"
-    - cron: "0 16 * * *"
+    - cron: "17 11 * * *"
+    - cron: "17 13 * * *"
+    - cron: "17 16 * * *"
   workflow_dispatch:
 
 permissions:

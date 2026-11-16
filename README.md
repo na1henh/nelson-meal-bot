@@ -26,8 +26,9 @@ The plan prints to the screen and is saved to `plans/<date>.md`.
 
 ## Daily update, website and widget (runs on GitHub)
 
-A GitHub Actions workflow (`.github/workflows/daily-plan.yml`) runs the bot at 6 AM Eastern, with a
-retry at 11 AM in case OU's menu site is down. It publishes the plan to `docs/`, which GitHub Pages
+A GitHub Actions workflow (`.github/workflows/daily-plan.yml`) runs the bot at about 6:15 AM Eastern, with
+retries at about 8:15 and 11:15 AM in case OU's menu site is down or GitHub skips a scheduled run
+(GitHub doesn't guarantee scheduled runs; if a day is still missing, use Run workflow, below). It publishes the plan to `docs/`, which GitHub Pages
 serves as a phone-friendly website. It also writes `docs/widget.json`, a short summary for the Android
 home-screen widget (see `WIDGET.md`). No computer has to be on.
 
