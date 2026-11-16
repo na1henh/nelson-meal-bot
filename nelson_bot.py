@@ -666,6 +666,10 @@ def plan_to_dict(date, profile, T, plans, missing, extra=(), places=None):
 def load_profile():
     env = os.environ.get("NELSON_PROFILE", "").strip()
     if env:
+        if not env.startswith("{"):
+            # Stored base64-encoded so web forms can't mangle the JSON's quotes.
+            import base64
+            env = base64.b64decode(env).decode("utf-8")
         return {**DEFAULT_PROFILE, **json.loads(env)}, False
     if PROFILE_PATH.exists():
         p = json.loads(PROFILE_PATH.read_text(encoding="utf-8"))

@@ -22,9 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -43,10 +43,16 @@ jobs:
             exit 1
           fi
           for attempt in 1 2; do
-            if python nelson_bot.py --patient --date "$TODAY" --publish-dir docs; then
-              exit 0
+            set +e
+            python nelson_bot.py --patient --date "$TODAY" --publish-dir docs
+            code=$?
+            set -e
+            if [ "$code" -eq 0 ]; then exit 0; fi
+            if [ "$code" -ne 2 ] && [ "$code" -ne 3 ]; then
+              echo "::error::The bot crashed (exit code $code). See the log above."
+              exit 1
             fi
-            echo "Attempt $attempt got no usable menu."
+            echo "Attempt $attempt got no usable menu (exit code $code)."
           done
           echo "::warning::No plan for $TODAY: Nelson may be closed or OU's menu site is down."
 
