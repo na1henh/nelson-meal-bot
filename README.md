@@ -38,6 +38,21 @@ home-screen widget (see `WIDGET.md`). No computer has to be on.
   website shows an "Older plan" warning above the last plan.
 - To run it by hand: the repository's Actions tab > Daily meal plan > Run workflow.
 
+## Tracking on the website (Today, Progress, Week)
+
+- **Today:** a quick check-in (lifting today? session length, morning weight, steps if far from 10k).
+  The day's calorie target adjusts: resting burn x 1.45 for a day with about 10k steps and no lifting,
+  plus about 5 kcal per minute of lifting, plus or minus about 0.04 kcal per step away from 10k, plus
+  the surplus. Protein stays the same. Tick foods as you eat them and log anything off the plan.
+- **Progress:** weight chart with the 7-day average and the target range (0.25-0.35% of body weight
+  per week from your first weigh-in), where you should weigh now and in 12 weeks, a rough muscle
+  estimate (0.25-0.5% of body weight per month for an advanced natural lifter, a coaching rule of
+  thumb), waist log, and the last 14 days of eating.
+- **Week:** weekly report with averages vs targets, days on target, lift days, weight change vs the
+  previous week, fiber and sodium, most-eaten foods and takeaways. "Copy this report" copies it.
+- Everything you enter is stored only in that phone's browser. Use "Save backup file" on the
+  Progress tab now and then; "Restore from file" brings it back.
+
 ## Weigh-ins (calories tune themselves)
 
 The calorie formula is only a starting guess, often off by a few hundred calories for lifters. Weigh
