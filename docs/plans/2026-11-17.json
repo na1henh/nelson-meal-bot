@@ -1,0 +1,402 @@
+{
+ "date": "2026-11-17",
+ "place": "The District (Boyd) + Nelson Court",
+ "label": "Tuesday, November 17",
+ "generated": "2026-11-17T18:37",
+ "targets": {
+  "bmr": 1771,
+  "tdee": 2746,
+  "kcal": 2996,
+  "protein": 153,
+  "carbs": 394,
+  "fat": 90,
+  "fiber": 42,
+  "fat_floor": 67,
+  "produce_g": 600,
+  "kcal_adjust": 0,
+  "sodium": 2300,
+  "sat_fat": 33,
+  "added_sugar": 75
+ },
+ "meals": [
+  {
+   "meal": "lunch",
+   "place": "The District (Boyd)",
+   "served": true,
+   "target": {
+    "kcal": 1398,
+    "protein": 71
+   },
+   "items": [
+    {
+     "id": "278002*4",
+     "name": "Marinated Chicken Breast",
+     "station": "Carver's Cut Churrascaria",
+     "servings": 1.5,
+     "serving": "4 OZW",
+     "portion": "6 oz (1.5 x 4 OZW)",
+     "tags": [
+      "NG"
+     ],
+     "dessert": false,
+     "kcal": 243.0,
+     "protein": 38.0,
+     "carbs": 1.5,
+     "fat": 10.5,
+     "fiber": 0.0,
+     "sodium": 558.3,
+     "sat_fat": 1.4,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "257649*3",
+     "name": "Cranberry Quinoa",
+     "station": "West Greens",
+     "servings": 2.5,
+     "serving": "3 OZW",
+     "portion": "7.5 oz (2.5 x 3 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 362.5,
+     "protein": 9.8,
+     "carbs": 61.2,
+     "fat": 7.8,
+     "fiber": 6.5,
+     "sodium": 242.8,
+     "sat_fat": 0.5,
+     "added_sugar": 10.8,
+     "produce_g": 212.6
+    },
+    {
+     "id": "407307*6",
+     "name": "Spaghetti Noodles",
+     "station": "Noodled",
+     "servings": 1.5,
+     "serving": "6 OZW",
+     "portion": "9 oz (1.5 x 6 OZW)",
+     "tags": [
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 528.0,
+     "protein": 14.9,
+     "carbs": 89.4,
+     "fat": 11.7,
+     "fiber": 4.2,
+     "sodium": 0.0,
+     "sat_fat": 0.8,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438037*4",
+     "name": "Romaine Lettuce",
+     "station": "West Greens",
+     "servings": 3.0,
+     "serving": "4 OZW",
+     "portion": "12 oz (3 x 4 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 57.0,
+     "protein": 4.2,
+     "carbs": 11.1,
+     "fat": 0.9,
+     "fiber": 7.2,
+     "sodium": 27.3,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 340.2
+    },
+    {
+     "id": "497679*4",
+     "name": "Mediterranean Tortellini Pasta Salad",
+     "station": "West Greens",
+     "servings": 1.5,
+     "serving": "4 OZW",
+     "portion": "6 oz (1.5 x 4 OZW)",
+     "tags": [
+      "M",
+      "E",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 196.5,
+     "protein": 5.8,
+     "carbs": 22.0,
+     "fat": 10.4,
+     "fiber": 1.5,
+     "sodium": 283.4,
+     "sat_fat": 2.5,
+     "added_sugar": 0.4,
+     "produce_g": 0.0
+    }
+   ],
+   "totals": {
+    "kcal": 1387.0,
+    "protein": 72.6,
+    "carbs": 185.3,
+    "fat": 41.2,
+    "fiber": 19.4,
+    "sodium": 1111.7,
+    "sat_fat": 5.2,
+    "added_sugar": 11.2,
+    "produce_g": 552.8
+   },
+   "backups": [
+    {
+     "name": "Verde Chicken",
+     "station": "West Greens",
+     "serving": "4 OZW",
+     "kcal": 118.0,
+     "protein": 23.6
+    },
+    {
+     "name": "Verde Chicken Thigh Strips",
+     "station": "Carver's Cut Rotisserie",
+     "serving": "3 OZW",
+     "kcal": 118.0,
+     "protein": 16.2
+    },
+    {
+     "name": "Mongolian Beef",
+     "station": "Destination",
+     "serving": "4 OZW",
+     "kcal": 172.0,
+     "protein": 13.5
+    }
+   ]
+  },
+  {
+   "meal": "dinner",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1598,
+    "protein": 82
+   },
+   "items": [
+    {
+     "id": "771456*1",
+     "name": "Granola",
+     "station": "Nutritional Information",
+     "servings": 1.5,
+     "serving": "1 OZW",
+     "portion": "1.5 oz (1.5 x 1 OZW)",
+     "tags": [
+      "NG",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 163.5,
+     "protein": 3.6,
+     "carbs": 34.0,
+     "fat": 2.1,
+     "fiber": 2.8,
+     "sodium": 106.4,
+     "sat_fat": 0.3,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438037*4",
+     "name": "Romaine Lettuce",
+     "station": "Salad Bar",
+     "servings": 3.0,
+     "serving": "4 OZW",
+     "portion": "12 oz (3 x 4 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 57.0,
+     "protein": 4.2,
+     "carbs": 11.1,
+     "fat": 0.9,
+     "fiber": 7.2,
+     "sodium": 27.3,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 340.2
+    },
+    {
+     "id": "407310*6",
+     "name": "Rotini Noodles",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "6 OZW",
+     "portion": "12 oz (2 x 6 OZW)",
+     "tags": [
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 632.0,
+     "protein": 17.8,
+     "carbs": 107.0,
+     "fat": 14.0,
+     "fiber": 2.6,
+     "sodium": 0.0,
+     "sat_fat": 0.8,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "278004*4",
+     "name": "Chicken Piccata",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "4 OZW",
+     "portion": "8 oz (2 x 4 OZW)",
+     "tags": [
+      "M",
+      "S"
+     ],
+     "dessert": false,
+     "kcal": 352.0,
+     "protein": 46.0,
+     "carbs": 13.4,
+     "fat": 14.2,
+     "fiber": 0.4,
+     "sodium": 439.2,
+     "sat_fat": 2.0,
+     "added_sugar": 0.6,
+     "produce_g": 0.0
+    },
+    {
+     "id": "775474*3",
+     "name": "Chocolate Pudding",
+     "station": "Nutritional Information",
+     "servings": 1.0,
+     "serving": "3 OZW",
+     "portion": "3 oz",
+     "tags": [
+      "NG",
+      "M",
+      "S",
+      "VT"
+     ],
+     "dessert": true,
+     "kcal": 82.0,
+     "protein": 0.7,
+     "carbs": 15.8,
+     "fat": 2.1,
+     "fiber": 2.8,
+     "sodium": 130.6,
+     "sat_fat": 0.3,
+     "added_sugar": 11.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438030*2",
+     "name": "Chopped Lettuce",
+     "station": "Salad Bar",
+     "servings": 3.0,
+     "serving": "2 OZW",
+     "portion": "6 oz (3 x 2 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 27.0,
+     "protein": 2.4,
+     "carbs": 4.8,
+     "fat": 0.3,
+     "fiber": 2.1,
+     "sodium": 47.7,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 170.1
+    },
+    {
+     "id": "257505*3",
+     "name": "Hummus",
+     "station": "Salad Bar",
+     "servings": 1.0,
+     "serving": "3 OZW",
+     "portion": "3 oz",
+     "tags": [
+      "NG",
+      "SS",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 286.0,
+     "protein": 7.0,
+     "carbs": 22.1,
+     "fat": 20.8,
+     "fiber": 6.0,
+     "sodium": 379.2,
+     "sat_fat": 2.1,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    }
+   ],
+   "totals": {
+    "kcal": 1599.5,
+    "protein": 81.7,
+    "carbs": 208.3,
+    "fat": 54.4,
+    "fiber": 23.9,
+    "sodium": 1130.4,
+    "sat_fat": 5.5,
+    "added_sugar": 11.6,
+    "produce_g": 510.3
+   },
+   "backups": [
+    {
+     "name": "Marinated Chicken Breast",
+     "station": "Smoke N Flames",
+     "serving": "4 OZW",
+     "kcal": 162.0,
+     "protein": 25.3
+    },
+    {
+     "name": "Verde Chicken",
+     "station": "Salad Bar",
+     "serving": "4 OZW",
+     "kcal": 118.0,
+     "protein": 23.6
+    },
+    {
+     "name": "Steak Strips Fajita",
+     "station": "Oucooking",
+     "serving": "3 OZW",
+     "kcal": 132.0,
+     "protein": 20.3
+    }
+   ]
+  }
+ ],
+ "totals": {
+  "kcal": 2986.5,
+  "protein": 154.3,
+  "carbs": 393.6,
+  "fat": 95.6,
+  "fiber": 43.3,
+  "sodium": 2242.1,
+  "sat_fat": 10.7,
+  "added_sugar": 22.8,
+  "produce_g": 1063.1
+ },
+ "notes": [
+  "No fish in today's plan. Aim for 2 non-fried fish meals a week (salmon is ideal).",
+  "Portions are by weight (OZW = oz by weight): 4 oz of meat is about the size of your palm; 1 cup of rice/pasta is about a fist.",
+  "Lift consistently and aim for 7-9 h of sleep - the surplus only turns into muscle with training."
+ ],
+ "missing": []
+}
