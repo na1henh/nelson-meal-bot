@@ -311,6 +311,17 @@ TOPPING = RX(r"sauce|gravy|salsa|hummus|guacamole|cheese sauce|queso")
 FRIED = RX(r"fried|fries|breaded|crispy|tots\b|tempura|nugget|tender|wings|fritter|onion ring|corn dog|spring roll|egg roll|hash brown")
 PROCESSED = RX(r"salami|sausage|pepperoni|hot dog|bacon|\bham\b|cheddarwurst|bratwurst|bologna|kielbasa|chorizo|\bfranks?\b")
 FISH = RX(r"salmon|tuna|trout|cod\b|tilapia|pollock|shrimp|mahi|catfish")
+LEAFY = RX(r"lettuce|romaine|spinach|arugula|spring mix|mixed greens|\bkale\b|immunity blend")
+LEAFY_MAX_G = 113.0  # at most ~4 oz of salad greens per meal; the rest of the veg comes from cooked sides
+
+# Stations that serve a plate (an entree with its vegetable side) instead of separate items.
+# Value: a pattern for the items you can take there on their own. Everything else at the station
+# is an entree or a vegetable side, and a side is only planned on a plate with an entree.
+# The profile can add stations or change these with "plate_stations": {"Station Name": "pattern"}.
+PLATE_STATIONS = {
+    "kalamata leaf": r"\b(?:noodles?|penne|ziti|rotini|spaghetti|bowtie|linguine|fettuccine)\b|sauce\b|alfredo$|"
+                     r"pizza|soup|breadsticks?|texas toast",
+}
 
 
 def produce_grams(serving):
@@ -347,6 +358,20 @@ def classify(it, profile):
     it["processed"] = bool(PROCESSED.search(name))
     it["fish"] = bool(FISH.search(name)) and not it["fried"]
     it["n"] = {**n, "produce_g": produce_grams(n["serving"]) if (it["veg"] or it["fruit"]) else 0.0}
+    if produce_ok and LEAFY.search(name):
+        it["veg"], it["fruit"] = True, False
+        it["n"]["produce_g"] = produce_grams(n["serving"])
+    it["leafy_g"] = it["n"]["produce_g"] if (it["veg"] and LEAFY.search(name)) else 0.0
+    rules = {**PLATE_STATIONS, **{k.lower(): v for k, v in profile.get("plate_stations", {}).items()}}
+    if st in rules:
+        if re.search(rules[st], head, re.I):
+            it["plate_role"] = "standalone"
+        elif VEG.search(name) and not it["protein_src"]:
+            it["plate_role"] = "side"
+        else:
+            it["plate_role"] = "entree"
+    else:
+        it["plate_role"] = None
 
     # Per-serving health penalty (roughly 0..3; negative = bonus).
     pen = 0.04 * n["added_sugar"]
@@ -362,7 +387,9 @@ def classify(it, profile):
     pen -= 0.6 if it["favorite"] else 0
     it["pen"] = pen
 
-    if it["veg"] or it["fruit"]:
+    if it["leafy_g"]:
+        it["max_serv"] = max(0.5, min(3.0, int(LEAFY_MAX_G / it["leafy_g"] * 2) / 2))
+    elif it["veg"] or it["fruit"]:
         it["max_serv"] = 3.0
     elif it["dessert"] or it["topping"]:
         it["max_serv"] = 1.0
@@ -409,6 +436,8 @@ def meal_cost(sel, by_key, T, used_today):
     if not sel:
         return 1e9
     t = totals(sel, by_key)
+    if sum(by_key[k]["leafy_g"] * s for k, s in sel.items()) > LEAFY_MAX_G + 1:
+        return 1e9
     sq = lambda x: x * x
     c = 40 * sq((t["kcal"] - T["kcal"]) / T["kcal"])
     dp = (t["protein"] - T["protein"]) / T["protein"]
@@ -422,7 +451,7 @@ def meal_cost(sel, by_key, T, used_today):
         c += 6 * sq(max(0.0, t[f] - T[f]) / T[f])
     items = [by_key[k] for k in sel]
     c += 0.5 * sum(it["pen"] * sel[it["key"]] for it in items)
-    if not any(it["veg"] or it["fruit"] for it in items):
+    if not any(it["veg"] or it["fruit"] or it.get("parts") for it in items):
         c += 1.5
     if any(it["topping"] for it in items) and not any(it["carb_base"] or it["protein_src"] for it in items
                                                       if not it["topping"]):
@@ -435,7 +464,7 @@ def meal_cost(sel, by_key, T, used_today):
         c += 1.5
     c += 0.05 * len(sel) + 0.25 * max(0, len(sel) - 4)
     c += 0.4 * max(0, len({it["station"] for it in items}) - 2)
-    c += 0.6 * sum(1 for k in sel if k in used_today and not by_key[k]["favorite"])
+    c += 0.6 * sum(1 for k in sel if set(k.split("+")) & used_today and not by_key[k]["favorite"])
     return c
 
 
@@ -452,8 +481,8 @@ def local_search(start, cands, by_key, T, used_today):
                 ns = cur + d
                 if ns < 0 or ns > it["max_serv"] or ns == cur:
                     continue
-                if it["dessert"] and ns not in (0, 1):
-                    continue  # a dessert is one whole piece/slice, not half
+                if (it["dessert"] or it.get("parts")) and ns != int(ns):
+                    continue  # a dessert or a plate comes whole, not half
                 trial = dict(sel)
                 if ns == 0:
                     trial.pop(k)
@@ -469,6 +498,8 @@ def local_search(start, cands, by_key, T, used_today):
                     continue
                 trial = dict(sel)
                 s = min(trial.pop(k), it["max_serv"])
+                if it["dessert"] or it.get("parts"):
+                    s = max(1.0, float(int(s)))
                 trial[it["key"]] = s
                 c = meal_cost(trial, by_key, T, used_today)
                 if c < move_best - 1e-9:
@@ -488,6 +519,7 @@ def plan_meal(items, T, used_today, rng):
     cands = [it for it in items if it.get("n") and it.get("allowed")
              and (T.get("_dessert") or not it["dessert"])
              and not (it["dessert"] and it["n"]["kcal"] > T.get("_dessert_max", 300))]
+    cands = make_plates(cands)
     if not cands:
         return {}, None
     by_key = {it["key"]: it for it in cands}
@@ -513,7 +545,49 @@ def plan_meal(items, T, used_today, rng):
         sel, c = local_search(s, cands, by_key, T, used_today)
         if c < best_cost:
             best_sel, best_cost = sel, c
-    return best_sel, by_key
+    return split_plates(best_sel, by_key)
+
+
+def make_plates(cands):
+    """At plate stations, replace entrees and vegetable sides with one candidate per
+    entree + side pair, so a side is never planned on its own. An entree stays on its own
+    only when the station has no vegetable side at that meal."""
+    out, by_station = [], {}
+    for it in cands:
+        if it.get("plate_role") in ("entree", "side"):
+            by_station.setdefault(it["station"], {"entree": [], "side": []})[it["plate_role"]].append(it)
+        else:
+            out.append(it)
+    for group in by_station.values():
+        if not group["side"]:
+            out += group["entree"]
+            continue
+        sides = sorted(group["side"], key=lambda v: v["n"]["fiber"] - v["pen"], reverse=True)[:3]
+        for e in group["entree"]:
+            for v in sides:
+                n = {f: e["n"][f] + v["n"][f] for f in NUTRS}
+                n["serving"] = "1 plate"
+                plate = {**e, "key": e["key"] + "+" + v["key"], "name": f"{e['name']} + {v['name']}", "n": n,
+                         "parts": [e, v], "veg": False, "fruit": False, "leafy_g": 0.0, "max_serv": 2.0,
+                         "pen": e["pen"] + v["pen"], "favorite": e["favorite"] or v["favorite"],
+                         "protein_src": n["protein"] >= 12 and n["protein"] * 4 >= 0.25 * max(n["kcal"], 1)}
+                out.append(plate)
+    return out
+
+
+def split_plates(sel, by_key):
+    """Turn each chosen plate back into its entree and side, marked as one plate."""
+    out = {}
+    for k, s in sel.items():
+        it = by_key[k]
+        if not it.get("parts"):
+            out[k] = out.get(k, 0.0) + s
+            continue
+        names = [p["name"] for p in it["parts"]]
+        for p in it["parts"]:
+            by_key[p["key"]] = {**p, "plate": [x for x in names if x != p["name"]]}
+            out[p["key"]] = out.get(p["key"], 0.0) + s
+    return out, by_key
 
 # --------------------------------------------------------------------------- output
 
@@ -589,7 +663,8 @@ def render(date, profile, T, plans, missing, extra=(), places=None):
         for st, rows in stations.items():
             L.append(f"**{st}**")
             for it, s in rows:
-                L.append(f"- {it['name']} - {portion_text(it['n']['serving'], s)}")
+                plate = f" (one plate with {', '.join(it['plate'])})" if it.get("plate") else ""
+                L.append(f"- {it['name']} - {portion_text(it['n']['serving'], s)}{plate}")
                 L.append(f"  `{fmt_row(it['n'], s)}`")
             L.append("")
         t = totals(sel, by_key)
@@ -636,7 +711,8 @@ def plan_to_dict(date, profile, T, plans, missing, extra=(), places=None):
             it = by_key[k]
             items.append({"id": k, "name": it["name"], "station": it["station"], "servings": s,
                           "serving": it["n"]["serving"], "portion": portion_text(it["n"]["serving"], s),
-                          "tags": it["tags"], "dessert": it["dessert"], **nut(it["n"], s)})
+                          "tags": it["tags"], "dessert": it["dessert"], **({"plate": it["plate"]} if it.get("plate") else {}),
+                          **nut(it["n"], s)})
         t = totals(sel, by_key) if sel else dict.fromkeys(NUTRS, 0.0)
         for f in NUTRS:
             day[f] += t[f]
@@ -966,7 +1042,7 @@ def main():
         used_today |= set(sel)
         backups = []
         if by_key:
-            backups = sorted((i for i in by_key.values() if i["protein_src"] and i["key"] not in sel),
+            backups = sorted((i for i in by_key.values() if i["protein_src"] and not set(i["key"].split("+")) & set(sel)),
                              key=protein_rank, reverse=True)[:3]
         plans[m] = (sel, by_key, mt, backups)
 

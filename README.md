@@ -37,7 +37,38 @@ home-screen widget (see `WIDGET.md`). No computer has to be on.
 - The published plans leave out your weight, height and age.
 - If Nelson is closed or OU's site returns no usable menu, nothing is published that day, and the
   website shows an "Older plan" warning above the last plan.
-- To run it by hand: the repository's Actions tab > Daily meal plan > Run workflow.
+- To run it by hand: the repository's Actions tab > Daily meal plan > Run workflow. Tick "Rebuild" to replace a plan that is already published.
+
+### Reliable daily start (cron-job.org)
+
+GitHub's own schedule often runs hours late or not at all. A free outside scheduler,
+cron-job.org, starts the same workflow through GitHub's API instead. Nothing here uses Claude,
+so it keeps working without a Claude account. The GitHub schedule stays as a backup; a run
+that finds today's plan already published does nothing.
+
+1. **Make a token that can only start this workflow.** GitHub > Settings > Developer settings >
+   Personal access tokens > Fine-grained tokens > Generate new token.
+   - Name: `meal-plan cron`. Expiration: the longest offered (or "No expiration"); put a
+     reminder in your calendar to renew it a week before it runs out.
+   - Repository access: Only select repositories > `nelson-meal-bot`.
+   - Permissions > Repository permissions > **Actions: Read and write**. Leave everything else as is.
+   - Generate it and copy the token (it starts with `github_pat_`). GitHub shows it only once.
+2. **Make the cron job.** Sign up at cron-job.org, then Create cronjob:
+   - URL: `https://api.github.com/repos/na1henh/nelson-meal-bot/actions/workflows/daily-plan.yml/dispatches`
+   - Schedule: Custom, every day at **6:10** and **11:10** (two times in the hour/minute fields,
+     or two jobs). Time zone: **America/New_York**.
+   - Advanced > Request method: **POST**.
+   - Advanced > Headers:
+     - `Accept`: `application/vnd.github+json`
+     - `Authorization`: `Bearer github_pat_...` (your token)
+     - `X-GitHub-Api-Version`: `2022-11-28`
+     - `Content-Type`: `application/json`
+   - Advanced > Request body: `{"ref":"main"}`
+   - Save, then press **Test run**. It should answer `204 No Content`, and a new run appears
+     under the repository's Actions tab within a few seconds.
+   - Turn on cron-job.org's email on failure, so an expired token doesn't go unnoticed.
+3. If the test answers 401 or 403, the token is wrong, expired, or lacks Actions: Read and write.
+   404 means the URL has a typo or the token can't see this repository.
 
 ## Tracking on the website (Today, Progress, Week)
 
@@ -103,5 +134,9 @@ The OU menu site is slow and unreliable: one page can take anywhere from 10 seco
 | `location` / `locations_by_weekday` | which dining hall to plan for, using OU's names from ohio.edu/food/menus. Default is `NELSON COURT`. A weekday can name one hall for the whole day or one per meal: Tuesday lunch is set to `THE DISTRICT ON WEST GREEN` (the hall in Boyd), with dinner at Nelson. `--location "..."` overrides every meal for one run |
 | `favorites` | words for foods you like (e.g. `"chicken"`, `"penne"`, `"pizza"`): favored, can appear at both lunch and dinner, and up to 3 portions of a favorite protein |
 | `allow_dessert` / `desserts_per_day` | adds one full dessert to your last meal of the day |
+| `plate_stations` | stations that serve a plate (an entree with its vegetable side) instead of separate items, with a pattern for what you can take there on its own. Kalamata Leaf is built in: noodles, sauces, pizza, soup and breadsticks on their own; anything else is an entree, and its vegetables are only planned on the same plate. Example: `{"Noodled": "noodles\\b\|sauce\\b"}` |
+
+Salad greens (lettuce, romaine, spinach, arugula, salad blends) are capped at about 4 oz per meal,
+so the vegetable target is met mostly with cooked vegetables.
 
 Nutrition numbers are Culinary Services' approximations, and menus can change without notice.

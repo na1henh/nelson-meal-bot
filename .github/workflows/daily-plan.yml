@@ -11,6 +11,11 @@ on:
     - cron: "17 13 * * *"
     - cron: "17 16 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild today's plan even if it is already published"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,7 +41,7 @@ jobs:
         run: |
           TODAY=$(TZ=America/New_York date +%F)
           echo "TODAY=$TODAY" >> "$GITHUB_ENV"
-          if [ -f "docs/plans/$TODAY.json" ]; then
+          if [ -f "docs/plans/$TODAY.json" ] && [ "${{ inputs.force }}" != "true" ]; then
             echo "Today's plan is already published."
             exit 0
           fi

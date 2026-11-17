@@ -661,7 +661,8 @@ table.week th { font: 700 12px/1.2 var(--font-display); font-stretch: 85%; lette
           const body = el("span", "item-body");
           const name = el("span", "name", it.name);
           if (it.dessert) name.append(el("span", "tag", "Dessert"));
-          body.append(name, el("span", "portion", it.portion));
+          if (it.plate) name.append(el("span", "tag", "Plate"));
+          body.append(name, el("span", "portion", it.portion + (it.plate ? " \u00b7 one plate with " + it.plate.join(", ") : "")));
           const mac = el("span", "macros num");
           mac.append(el("span", "k", fmt(it.kcal) + " kcal"), el("span", "p", fmt(it.protein) + " g protein"),
                      el("span", null, fmt(it.carbs) + " g carbs"), el("span", null, fmt(it.fat) + " g fat"));
