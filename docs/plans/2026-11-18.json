@@ -1,0 +1,407 @@
+{
+ "date": "2026-11-18",
+ "place": "Nelson Court",
+ "label": "Wednesday, November 18",
+ "generated": "2026-11-18T19:54",
+ "targets": {
+  "bmr": 1771,
+  "tdee": 2746,
+  "kcal": 2996,
+  "protein": 153,
+  "carbs": 394,
+  "fat": 90,
+  "fiber": 42,
+  "fat_floor": 67,
+  "produce_g": 600,
+  "kcal_adjust": 0,
+  "sodium": 2300,
+  "sat_fat": 33,
+  "added_sugar": 75
+ },
+ "meals": [
+  {
+   "meal": "lunch",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1398,
+    "protein": 71
+   },
+   "items": [
+    {
+     "id": "277820*3",
+     "name": "Pulled Chicken",
+     "station": "Smoke N Flames",
+     "servings": 1.5,
+     "serving": "3 OZW",
+     "portion": "4.5 oz (1.5 x 3 OZW)",
+     "tags": [
+      "NG"
+     ],
+     "dessert": false,
+     "kcal": 127.5,
+     "protein": 30.2,
+     "carbs": 1.2,
+     "fat": 1.2,
+     "fiber": 0.0,
+     "sodium": 63.8,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "407309*6",
+     "name": "Ziti Noodles",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "6 OZW",
+     "portion": "12 oz (2 x 6 OZW)",
+     "tags": [
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 794.0,
+     "protein": 22.4,
+     "carbs": 134.4,
+     "fat": 17.6,
+     "fiber": 6.4,
+     "sodium": 0.0,
+     "sat_fat": 1.0,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "428055*3",
+     "name": "Ginger Carrots",
+     "station": "Oucooking",
+     "servings": 3.0,
+     "serving": "3 OZW",
+     "portion": "9 oz (3 x 3 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 150.0,
+     "protein": 0.0,
+     "carbs": 36.6,
+     "fat": 1.5,
+     "fiber": 9.3,
+     "sodium": 156.9,
+     "sat_fat": 0.0,
+     "added_sugar": 13.5,
+     "produce_g": 255.2
+    },
+    {
+     "id": "278226*6",
+     "name": "Chicken Scallopine w/ Mush,Tom,Feta & Caper Sauce",
+     "station": "Kalamata Leaf",
+     "servings": 1.0,
+     "serving": "6 OZW",
+     "portion": "6 oz",
+     "tags": [
+      "M",
+      "S"
+     ],
+     "dessert": false,
+     "plate": [
+      "Charred Brussel Sprouts"
+     ],
+     "kcal": 273.0,
+     "protein": 17.7,
+     "carbs": 12.5,
+     "fat": 17.6,
+     "fiber": 0.7,
+     "sodium": 395.3,
+     "sat_fat": 8.4,
+     "added_sugar": 0.7,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438233*4",
+     "name": "Charred Brussel Sprouts",
+     "station": "Kalamata Leaf",
+     "servings": 1.0,
+     "serving": "4 OZW",
+     "portion": "4 oz",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "plate": [
+      "Chicken Scallopine w/ Mush,Tom,Feta & Caper Sauce"
+     ],
+     "kcal": 120.0,
+     "protein": 3.5,
+     "carbs": 12.4,
+     "fat": 6.4,
+     "fiber": 3.8,
+     "sodium": 234.8,
+     "sat_fat": 0.9,
+     "added_sugar": 2.2,
+     "produce_g": 113.4
+    }
+   ],
+   "totals": {
+    "kcal": 1464.5,
+    "protein": 73.8,
+    "carbs": 197.1,
+    "fat": 44.3,
+    "fiber": 20.2,
+    "sodium": 850.8,
+    "sat_fat": 10.3,
+    "added_sugar": 16.4,
+    "produce_g": 368.6
+   },
+   "backups": [
+    {
+     "name": "Marinated Chicken Breast",
+     "station": "Smoke N Flames",
+     "serving": "4 OZW",
+     "kcal": 162.0,
+     "protein": 25.3
+    },
+    {
+     "name": "Verde Chicken",
+     "station": "Salad Bar",
+     "serving": "4 OZW",
+     "kcal": 118.0,
+     "protein": 23.6
+    },
+    {
+     "name": "Deli Turkey",
+     "station": "Salad Bar",
+     "serving": "3 OZW",
+     "kcal": 90.0,
+     "protein": 18.0
+    }
+   ]
+  },
+  {
+   "meal": "dinner",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1598,
+    "protein": 82
+   },
+   "items": [
+    {
+     "id": "407313*6",
+     "name": "Fettuccine Noodles",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "6 OZW",
+     "portion": "12 oz (2 x 6 OZW)",
+     "tags": [
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 760.0,
+     "protein": 18.0,
+     "carbs": 108.4,
+     "fat": 28.0,
+     "fiber": 5.2,
+     "sodium": 0.0,
+     "sat_fat": 1.8,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "497692*3",
+     "name": "Apple & Cranberry Quinoa Salad",
+     "station": "Salad Bar",
+     "servings": 3.0,
+     "serving": "3 OZW",
+     "portion": "9 oz (3 x 3 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 333.0,
+     "protein": 7.2,
+     "carbs": 59.1,
+     "fat": 6.9,
+     "fiber": 5.4,
+     "sodium": 17.7,
+     "sat_fat": 0.6,
+     "added_sugar": 18.9,
+     "produce_g": 255.2
+    },
+    {
+     "id": "775474*3",
+     "name": "Chocolate Pudding",
+     "station": "Nutritional Information",
+     "servings": 1.0,
+     "serving": "3 OZW",
+     "portion": "3 oz",
+     "tags": [
+      "NG",
+      "M",
+      "S",
+      "VT"
+     ],
+     "dessert": true,
+     "kcal": 82.0,
+     "protein": 0.7,
+     "carbs": 15.8,
+     "fat": 2.1,
+     "fiber": 2.8,
+     "sodium": 130.6,
+     "sat_fat": 0.3,
+     "added_sugar": 11.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "278002*4",
+     "name": "Marinated Chicken Breast",
+     "station": "Smoke N Flames",
+     "servings": 2.0,
+     "serving": "4 OZW",
+     "portion": "8 oz (2 x 4 OZW)",
+     "tags": [
+      "NG"
+     ],
+     "dessert": false,
+     "kcal": 324.0,
+     "protein": 50.6,
+     "carbs": 2.0,
+     "fat": 14.0,
+     "fiber": 0.0,
+     "sodium": 744.4,
+     "sat_fat": 1.8,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438091*1",
+     "name": "Carrot Sticks",
+     "station": "Salad Bar",
+     "servings": 3.0,
+     "serving": "1 OZW",
+     "portion": "3 oz (3 x 1 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 33.0,
+     "protein": 0.6,
+     "carbs": 8.1,
+     "fat": 0.3,
+     "fiber": 2.4,
+     "sodium": 53.4,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 85.1
+    },
+    {
+     "id": "438037*4",
+     "name": "Romaine Lettuce",
+     "station": "Salad Bar",
+     "servings": 0.5,
+     "serving": "4 OZW",
+     "portion": "2 oz (0.5 x 4 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 9.5,
+     "protein": 0.7,
+     "carbs": 1.9,
+     "fat": 0.1,
+     "fiber": 1.2,
+     "sodium": 4.5,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 56.7
+    },
+    {
+     "id": "438010*1",
+     "name": "Cauliflower Florets",
+     "station": "Salad Bar",
+     "servings": 3.0,
+     "serving": "1 OZW",
+     "portion": "3 oz (3 x 1 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 21.0,
+     "protein": 1.5,
+     "carbs": 4.2,
+     "fat": 0.3,
+     "fiber": 1.8,
+     "sodium": 24.9,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 85.1
+    }
+   ],
+   "totals": {
+    "kcal": 1562.5,
+    "protein": 79.3,
+    "carbs": 199.4,
+    "fat": 51.7,
+    "fiber": 18.8,
+    "sodium": 975.5,
+    "sat_fat": 4.5,
+    "added_sugar": 29.9,
+    "produce_g": 482.0
+   },
+   "backups": [
+    {
+     "name": "Verde Chicken",
+     "station": "Salad Bar",
+     "serving": "4 OZW",
+     "kcal": 118.0,
+     "protein": 23.6
+    },
+    {
+     "name": "Deli Turkey",
+     "station": "Salad Bar",
+     "serving": "3 OZW",
+     "kcal": 90.0,
+     "protein": 18.0
+    },
+    {
+     "name": "Double Pleasure",
+     "station": "Bamboo Bowl",
+     "serving": "4 OZW",
+     "kcal": 161.0,
+     "protein": 13.4
+    }
+   ]
+  }
+ ],
+ "totals": {
+  "kcal": 3027.0,
+  "protein": 153.1,
+  "carbs": 396.5,
+  "fat": 96.0,
+  "fiber": 39.0,
+  "sodium": 1826.3,
+  "sat_fat": 14.8,
+  "added_sugar": 46.3,
+  "produce_g": 850.5
+ },
+ "notes": [
+  "No fish in today's plan. Aim for 2 non-fried fish meals a week (salmon is ideal).",
+  "Fiber is under target - add another plate of salad-bar veg or a piece of fruit.",
+  "Portions are by weight (OZW = oz by weight): 4 oz of meat is about the size of your palm; 1 cup of rice/pasta is about a fist.",
+  "Lift consistently and aim for 7-9 h of sleep - the surplus only turns into muscle with training."
+ ],
+ "missing": []
+}
