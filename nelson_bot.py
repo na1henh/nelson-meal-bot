@@ -814,6 +814,19 @@ def weight_trend(st, today, profile):
     return rate, lo, hi, this_wk
 
 
+TUNING_PATH = HERE / "tuning.json"
+
+
+def load_tuning():
+    """Hand-set calorie change that the GitHub version can read. It holds no body stats,
+    so it can live in the public repository, unlike weights.json and the profile."""
+    try:
+        t = json.loads(TUNING_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        t = {}
+    return {"kcal_adjust": int(t.get("kcal_adjust", 0)), "reason": str(t.get("reason", ""))}
+
+
 def update_calorie_adjustment(st, today, profile):
     """Every 2 weeks, nudge calories toward the target rate of gain. Ignores the first
     2 weeks of logging (water/glycogen noise). Step sizes are practitioner convention."""
@@ -1007,8 +1020,12 @@ def main():
             classify(it, profile)
 
     step = update_calorie_adjustment(weights, date, profile)
-    T = compute_targets(profile, weights["kcal_adjust"])
+    tune = load_tuning()
+    T = compute_targets(profile, weights["kcal_adjust"] + tune["kcal_adjust"])
     extra = [weight_status(weights, date, profile)]
+    if tune["kcal_adjust"]:
+        why = f" ({tune['reason']})" if tune.get("reason") else ""
+        extra.insert(0, f"Calories set {tune['kcal_adjust']:+d} kcal by hand in tuning.json{why}.")
     if step:
         extra.insert(0, f"Calories changed {step:+d} kcal today based on your 2-week weight trend.")
     served = [m for m in meals if menus[m]]

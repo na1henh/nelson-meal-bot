@@ -103,6 +103,12 @@ weight per week:
 - too slow: +100 kcal
 - losing weight: +200 kcal
 
+**On GitHub:** the workflow can't see your weigh-ins, so the automatic adjustment above only runs on
+your computer. To change calories for the GitHub version, edit `tuning.json` in the repository
+(GitHub website > the file > pencil icon): `kcal_adjust` is added to the daily target from the next
+plan on (e.g. `250`, or `0` to undo). It holds no body stats, so it is safe in a public repository;
+keep weights out of its `reason` text, which shows on the website.
+
 The research behind every target is summarized in a report kept on the owner's computer (not in this repository).
 
 ## Why it can be slow, and how to make it fast
