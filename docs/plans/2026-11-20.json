@@ -1,0 +1,399 @@
+{
+ "date": "2026-11-20",
+ "place": "Nelson Court",
+ "label": "Friday, November 20",
+ "generated": "2026-11-20T19:14",
+ "targets": {
+  "bmr": 1771,
+  "tdee": 2746,
+  "kcal": 3246,
+  "protein": 153,
+  "carbs": 439,
+  "fat": 97,
+  "fiber": 45,
+  "fat_floor": 72,
+  "produce_g": 600,
+  "kcal_adjust": 250,
+  "sodium": 2300,
+  "sat_fat": 36,
+  "added_sugar": 81
+ },
+ "meals": [
+  {
+   "meal": "lunch",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1515,
+    "protein": 71
+   },
+   "items": [
+    {
+     "id": "238114*4",
+     "name": "Salmon With Lemon Caper Sauce",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "4 OZW",
+     "portion": "8 oz (2 x 4 OZW)",
+     "tags": [
+      "NG",
+      "F",
+      "M"
+     ],
+     "dessert": false,
+     "plate": [
+      "Whole Green Beans"
+     ],
+     "kcal": 380.0,
+     "protein": 36.6,
+     "carbs": 2.6,
+     "fat": 24.8,
+     "fiber": 0.2,
+     "sodium": 290.0,
+     "sat_fat": 13.2,
+     "added_sugar": 0.8,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438066*3",
+     "name": "Whole Green Beans",
+     "station": "Kalamata Leaf",
+     "servings": 4.0,
+     "serving": "3 OZW",
+     "portion": "12 oz (4 x 3 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "plate": [
+      "Macaroni Shell Pasta"
+     ],
+     "kcal": 144.0,
+     "protein": 8.4,
+     "carbs": 33.2,
+     "fat": 0.0,
+     "fiber": 12.4,
+     "sodium": 20.8,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 340.2
+    },
+    {
+     "id": "407336*6",
+     "name": "Macaroni Shell Pasta",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "6 OZW",
+     "portion": "12 oz (2 x 6 OZW)",
+     "tags": [
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "plate": [
+      "Whole Green Beans"
+     ],
+     "kcal": 748.0,
+     "protein": 17.6,
+     "carbs": 106.2,
+     "fat": 28.0,
+     "fiber": 5.0,
+     "sodium": 12.6,
+     "sat_fat": 1.8,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "257649*3",
+     "name": "Cranberry Quinoa",
+     "station": "Salad Bar",
+     "servings": 1.5,
+     "serving": "3 OZW",
+     "portion": "4.5 oz (1.5 x 3 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 217.5,
+     "protein": 5.8,
+     "carbs": 36.8,
+     "fat": 4.7,
+     "fiber": 3.9,
+     "sodium": 145.6,
+     "sat_fat": 0.3,
+     "added_sugar": 6.4,
+     "produce_g": 127.6
+    },
+    {
+     "id": "438091*1",
+     "name": "Carrot Sticks",
+     "station": "Salad Bar",
+     "servings": 3.0,
+     "serving": "1 OZW",
+     "portion": "3 oz (3 x 1 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 33.0,
+     "protein": 0.6,
+     "carbs": 8.1,
+     "fat": 0.3,
+     "fiber": 2.4,
+     "sodium": 53.4,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 85.1
+    }
+   ],
+   "totals": {
+    "kcal": 1522.5,
+    "protein": 69.0,
+    "carbs": 186.8,
+    "fat": 57.7,
+    "fiber": 23.9,
+    "sodium": 522.5,
+    "sat_fat": 15.3,
+    "added_sugar": 7.2,
+    "produce_g": 552.8
+   },
+   "backups": [
+    {
+     "name": "Marinated Chicken Breast",
+     "station": "Smoke N Flames",
+     "serving": "4 OZW",
+     "kcal": 162.0,
+     "protein": 25.3
+    },
+    {
+     "name": "Verde Chicken",
+     "station": "Salad Bar",
+     "serving": "4 OZW",
+     "kcal": 118.0,
+     "protein": 23.6
+    },
+    {
+     "name": "Pulled Chicken Adobo",
+     "station": "Smoke N Flames",
+     "serving": "4 OZW",
+     "kcal": 140.0,
+     "protein": 16.8
+    }
+   ]
+  },
+  {
+   "meal": "dinner",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1731,
+    "protein": 82
+   },
+   "items": [
+    {
+     "id": "238150*4",
+     "name": "Parmesan Crusted Rockfish",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "4 OZW",
+     "portion": "8 oz (2 x 4 OZW)",
+     "tags": [
+      "F",
+      "M",
+      "S"
+     ],
+     "dessert": false,
+     "plate": [
+      "California Blend Vegetables"
+     ],
+     "kcal": 626.0,
+     "protein": 50.0,
+     "carbs": 19.2,
+     "fat": 39.2,
+     "fiber": 0.8,
+     "sodium": 1007.2,
+     "sat_fat": 9.6,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438121*3",
+     "name": "California Blend Vegetables",
+     "station": "Kalamata Leaf",
+     "servings": 4.0,
+     "serving": "3 OZW",
+     "portion": "12 oz (4 x 3 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "plate": [
+      "Rigatoni Pasta"
+     ],
+     "kcal": 100.0,
+     "protein": 4.0,
+     "carbs": 16.0,
+     "fat": 0.0,
+     "fiber": 4.0,
+     "sodium": 99.6,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 340.2
+    },
+    {
+     "id": "771456*1",
+     "name": "Granola",
+     "station": "Nutritional Information",
+     "servings": 1.5,
+     "serving": "1 OZW",
+     "portion": "1.5 oz (1.5 x 1 OZW)",
+     "tags": [
+      "NG",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 163.5,
+     "protein": 3.6,
+     "carbs": 34.0,
+     "fat": 2.1,
+     "fiber": 2.8,
+     "sodium": 106.4,
+     "sat_fat": 0.3,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "438136*4",
+     "name": "Roasted Brussel Sprouts,Broccoli & Onions",
+     "station": "Oucooking",
+     "servings": 3.0,
+     "serving": "4 OZW",
+     "portion": "12 oz (3 x 4 OZW)",
+     "tags": [
+      "NG",
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "kcal": 207.0,
+     "protein": 8.4,
+     "carbs": 28.8,
+     "fat": 8.4,
+     "fiber": 7.8,
+     "sodium": 94.8,
+     "sat_fat": 1.2,
+     "added_sugar": 0.0,
+     "produce_g": 340.2
+    },
+    {
+     "id": "407717*6",
+     "name": "Rigatoni Pasta",
+     "station": "Kalamata Leaf",
+     "servings": 2.0,
+     "serving": "6 OZW",
+     "portion": "12 oz (2 x 6 OZW)",
+     "tags": [
+      "VT",
+      "VN"
+     ],
+     "dessert": false,
+     "plate": [
+      "California Blend Vegetables"
+     ],
+     "kcal": 568.0,
+     "protein": 19.0,
+     "carbs": 113.6,
+     "fat": 2.8,
+     "fiber": 5.4,
+     "sodium": 0.0,
+     "sat_fat": 0.0,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "775474*3",
+     "name": "Chocolate Pudding",
+     "station": "Nutritional Information",
+     "servings": 1.0,
+     "serving": "3 OZW",
+     "portion": "3 oz",
+     "tags": [
+      "NG",
+      "M",
+      "S",
+      "VT"
+     ],
+     "dessert": true,
+     "kcal": 82.0,
+     "protein": 0.7,
+     "carbs": 15.8,
+     "fat": 2.1,
+     "fiber": 2.8,
+     "sodium": 130.6,
+     "sat_fat": 0.3,
+     "added_sugar": 11.0,
+     "produce_g": 0.0
+    }
+   ],
+   "totals": {
+    "kcal": 1746.5,
+    "protein": 85.7,
+    "carbs": 227.4,
+    "fat": 54.6,
+    "fiber": 23.7,
+    "sodium": 1438.5,
+    "sat_fat": 11.4,
+    "added_sugar": 11.0,
+    "produce_g": 680.4
+   },
+   "backups": [
+    {
+     "name": "Marinated Chicken Breast",
+     "station": "Smoke N Flames",
+     "serving": "4 OZW",
+     "kcal": 162.0,
+     "protein": 25.3
+    },
+    {
+     "name": "Verde Chicken",
+     "station": "Salad Bar",
+     "serving": "4 OZW",
+     "kcal": 118.0,
+     "protein": 23.6
+    },
+    {
+     "name": "Deli Turkey",
+     "station": "Salad Bar",
+     "serving": "3 OZW",
+     "kcal": 90.0,
+     "protein": 18.0
+    }
+   ]
+  }
+ ],
+ "totals": {
+  "kcal": 3269.0,
+  "protein": 154.8,
+  "carbs": 414.3,
+  "fat": 112.3,
+  "fiber": 47.5,
+  "sodium": 1961.0,
+  "sat_fat": 26.7,
+  "added_sugar": 18.2,
+  "produce_g": 1233.2
+ },
+ "notes": [
+  "Calories set +250 kcal by hand in tuning.json (weight trending down while eating the full plan; review after 2 weeks of morning weigh-ins).",
+  "Portions are by weight (OZW = oz by weight): 4 oz of meat is about the size of your palm; 1 cup of rice/pasta is about a fist.",
+  "Lift consistently and aim for 7-9 h of sleep - the surplus only turns into muscle with training."
+ ],
+ "missing": []
+}
