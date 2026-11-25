@@ -5878,5 +5878,65 @@
 "sugar": 2.3,
 "added_sugar": 0.0,
 "protein": 8.3
+},
+"918161*4": {
+"serving": "4 OZW",
+"kcal": 211.0,
+"fat": 13.4,
+"sat_fat": 6.0,
+"sodium": 758.5,
+"carbs": 16.0,
+"fiber": 0.7,
+"sugar": 2.8,
+"added_sugar": 1.7,
+"protein": 7.2
+},
+"268082*3+1/3": {
+"serving": "3 1/3 OZW",
+"kcal": 234.0,
+"fat": 18.7,
+"sat_fat": 7.5,
+"sodium": 599.7,
+"carbs": 0.0,
+"fiber": 0.0,
+"sugar": 0.0,
+"added_sugar": 0.0,
+"protein": 17.8
+},
+"268072*5": {
+"serving": "5 OZW",
+"kcal": 319.0,
+"fat": 13.6,
+"sat_fat": 4.1,
+"sodium": 430.1,
+"carbs": 29.2,
+"fiber": 0.6,
+"sugar": 1.2,
+"added_sugar": 0.0,
+"protein": 18.6
+},
+"438151*3": {
+"serving": "3 OZW",
+"kcal": 94.0,
+"fat": 6.7,
+"sat_fat": 1.0,
+"sodium": 531.1,
+"carbs": 8.5,
+"fiber": 3.1,
+"sugar": 1.1,
+"added_sugar": 0.0,
+"protein": 2.1
+},
+"438006*3": {
+"serving": "3 OZW",
+"kcal": 64.0,
+"fat": 5.2,
+"sat_fat": 0.7,
+"sodium": 18.1,
+"carbs": 4.5,
+"fiber": 1.4,
+"sugar": 2.7,
+"added_sugar": 0.0,
+"protein": 0.9
 }
 }
