@@ -1,0 +1,338 @@
+{
+ "date": "2026-11-27",
+ "place": "Nelson Court",
+ "label": "Friday, November 27",
+ "generated": "2026-11-27T19:59",
+ "targets": {
+  "bmr": 1771,
+  "tdee": 2746,
+  "kcal": 3246,
+  "protein": 153,
+  "carbs": 439,
+  "fat": 97,
+  "fiber": 45,
+  "fat_floor": 72,
+  "produce_g": 600,
+  "kcal_adjust": 250,
+  "sodium": 2300,
+  "sat_fat": 36,
+  "added_sugar": 81
+ },
+ "meals": [
+  {
+   "meal": "lunch",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1515,
+    "protein": 71
+   },
+   "items": [
+    {
+     "id": "770123*3",
+     "name": "Strawberry Yogurt",
+     "station": "Salad Bar",
+     "servings": 2.0,
+     "serving": "3 OZW",
+     "portion": "6 oz (2 x 3 OZW)",
+     "tags": [
+      "M",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 168.0,
+     "protein": 6.4,
+     "carbs": 32.0,
+     "fat": 1.6,
+     "fiber": 0.0,
+     "sodium": 112.0,
+     "sat_fat": 1.2,
+     "added_sugar": 20.8,
+     "produce_g": 0.0
+    },
+    {
+     "id": "774124*2",
+     "name": "Stacy's Pita Chips",
+     "station": "Nutritional Information",
+     "servings": 2.0,
+     "serving": "2 OZW",
+     "portion": "4 oz (2 x 2 OZW)",
+     "tags": [
+      "SS",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 526.0,
+     "protein": 12.2,
+     "carbs": 77.0,
+     "fat": 20.2,
+     "fiber": 4.0,
+     "sodium": 1093.6,
+     "sat_fat": 2.0,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "771456*1",
+     "name": "Granola",
+     "station": "Nutritional Information",
+     "servings": 2.0,
+     "serving": "1 OZW",
+     "portion": "2 oz (2 x 1 OZW)",
+     "tags": [
+      "NG",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 218.0,
+     "protein": 4.8,
+     "carbs": 45.4,
+     "fat": 2.8,
+     "fiber": 3.8,
+     "sodium": 141.8,
+     "sat_fat": 0.4,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "774517*3",
+     "name": "Yoplait Yogurt",
+     "station": "Nutritional Information",
+     "servings": 2.0,
+     "serving": "3 OZW",
+     "portion": "6 oz (2 x 3 OZW)",
+     "tags": [
+      "NG",
+      "M",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 160.0,
+     "protein": 7.4,
+     "carbs": 26.6,
+     "fat": 2.6,
+     "fiber": 0.0,
+     "sodium": 112.0,
+     "sat_fat": 1.6,
+     "added_sugar": 15.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "770125*3",
+     "name": "Blueberry Yogurt",
+     "station": "Nutritional Information",
+     "servings": 1.5,
+     "serving": "3 OZW",
+     "portion": "4.5 oz (1.5 x 3 OZW)",
+     "tags": [
+      "NG",
+      "M"
+     ],
+     "dessert": false,
+     "kcal": 126.0,
+     "protein": 4.8,
+     "carbs": 23.4,
+     "fat": 1.5,
+     "fiber": 0.0,
+     "sodium": 84.0,
+     "sat_fat": 0.9,
+     "added_sugar": 19.8,
+     "produce_g": 0.0
+    }
+   ],
+   "totals": {
+    "kcal": 1198.0,
+    "protein": 35.6,
+    "carbs": 204.4,
+    "fat": 28.7,
+    "fiber": 7.8,
+    "sodium": 1543.4,
+    "sat_fat": 6.1,
+    "added_sugar": 55.6,
+    "produce_g": 0.0
+   },
+   "backups": []
+  },
+  {
+   "meal": "dinner",
+   "place": "Nelson Court",
+   "served": true,
+   "target": {
+    "kcal": 1731,
+    "protein": 82
+   },
+   "items": [
+    {
+     "id": "770123*3",
+     "name": "Strawberry Yogurt",
+     "station": "Salad Bar",
+     "servings": 2.0,
+     "serving": "3 OZW",
+     "portion": "6 oz (2 x 3 OZW)",
+     "tags": [
+      "M",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 168.0,
+     "protein": 6.4,
+     "carbs": 32.0,
+     "fat": 1.6,
+     "fiber": 0.0,
+     "sodium": 112.0,
+     "sat_fat": 1.2,
+     "added_sugar": 20.8,
+     "produce_g": 0.0
+    },
+    {
+     "id": "774124*2",
+     "name": "Stacy's Pita Chips",
+     "station": "Nutritional Information",
+     "servings": 2.0,
+     "serving": "2 OZW",
+     "portion": "4 oz (2 x 2 OZW)",
+     "tags": [
+      "SS",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 526.0,
+     "protein": 12.2,
+     "carbs": 77.0,
+     "fat": 20.2,
+     "fiber": 4.0,
+     "sodium": 1093.6,
+     "sat_fat": 2.0,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "771456*1",
+     "name": "Granola",
+     "station": "Nutritional Information",
+     "servings": 2.0,
+     "serving": "1 OZW",
+     "portion": "2 oz (2 x 1 OZW)",
+     "tags": [
+      "NG",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 218.0,
+     "protein": 4.8,
+     "carbs": 45.4,
+     "fat": 2.8,
+     "fiber": 3.8,
+     "sodium": 141.8,
+     "sat_fat": 0.4,
+     "added_sugar": 0.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "774517*3",
+     "name": "Yoplait Yogurt",
+     "station": "Nutritional Information",
+     "servings": 2.0,
+     "serving": "3 OZW",
+     "portion": "6 oz (2 x 3 OZW)",
+     "tags": [
+      "NG",
+      "M",
+      "VT"
+     ],
+     "dessert": false,
+     "kcal": 160.0,
+     "protein": 7.4,
+     "carbs": 26.6,
+     "fat": 2.6,
+     "fiber": 0.0,
+     "sodium": 112.0,
+     "sat_fat": 1.6,
+     "added_sugar": 15.0,
+     "produce_g": 0.0
+    },
+    {
+     "id": "770125*3",
+     "name": "Blueberry Yogurt",
+     "station": "Nutritional Information",
+     "servings": 2.0,
+     "serving": "3 OZW",
+     "portion": "6 oz (2 x 3 OZW)",
+     "tags": [
+      "NG",
+      "M"
+     ],
+     "dessert": false,
+     "kcal": 168.0,
+     "protein": 6.4,
+     "carbs": 31.2,
+     "fat": 2.0,
+     "fiber": 0.0,
+     "sodium": 112.0,
+     "sat_fat": 1.2,
+     "added_sugar": 26.4,
+     "produce_g": 0.0
+    },
+    {
+     "id": "775579*3",
+     "name": "Vanilla Pudding",
+     "station": "Nutritional Information",
+     "servings": 1.0,
+     "serving": "3 OZW",
+     "portion": "3 oz",
+     "tags": [
+      "NG",
+      "M",
+      "S",
+      "VT"
+     ],
+     "dessert": true,
+     "kcal": 131.0,
+     "protein": 1.4,
+     "carbs": 17.9,
+     "fat": 6.2,
+     "fiber": 0.0,
+     "sodium": 123.7,
+     "sat_fat": 1.0,
+     "added_sugar": 9.6,
+     "produce_g": 0.0
+    }
+   ],
+   "totals": {
+    "kcal": 1371.0,
+    "protein": 38.6,
+    "carbs": 230.1,
+    "fat": 35.4,
+    "fiber": 7.8,
+    "sodium": 1695.1,
+    "sat_fat": 7.4,
+    "added_sugar": 71.8,
+    "produce_g": 0.0
+   },
+   "backups": []
+  }
+ ],
+ "totals": {
+  "kcal": 2569.0,
+  "protein": 74.2,
+  "carbs": 434.5,
+  "fat": 64.1,
+  "fiber": 15.6,
+  "sodium": 3238.5,
+  "sat_fat": 13.5,
+  "added_sugar": 127.4,
+  "produce_g": 0.0
+ },
+ "notes": [
+  "Calories set +250 kcal by hand in tuning.json (weight trending down while eating the full plan; review after 2 weeks of morning weigh-ins).",
+  "No fish in today's plan. Aim for 2 non-fried fish meals a week (salmon is ideal).",
+  "You're ~677 kcal short of the maingain target. Close it with a snack: Greek yogurt + granola, a PB&J, a glass of milk, trail mix or a banana with peanut butter.",
+  "Protein is ~79 g short - add a protein shake, Greek yogurt, milk or extra deli turkey/chicken.",
+  "Sodium runs high (dining-hall food usually does): drink extra water and skip added sauces/dressings.",
+  "Fruit & veg is ~0 g - aim for 600 g a day (a big salad-bar plate is 200-300 g; grab a piece of fruit too).",
+  "Fiber is under target - add another plate of salad-bar veg or a piece of fruit.",
+  "Portions are by weight (OZW = oz by weight): 4 oz of meat is about the size of your palm; 1 cup of rice/pasta is about a fist.",
+  "Lift consistently and aim for 7-9 h of sleep - the surplus only turns into muscle with training."
+ ],
+ "missing": []
+}

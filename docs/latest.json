@@ -1,8 +1,8 @@
 {
- "date": "2026-11-26",
+ "date": "2026-11-27",
  "place": "Nelson Court",
- "label": "Thursday, November 26",
- "generated": "2026-11-26T20:13",
+ "label": "Friday, November 27",
+ "generated": "2026-11-27T19:59",
  "targets": {
   "bmr": 1771,
   "tdee": 2746,
@@ -29,25 +29,25 @@
    },
    "items": [
     {
-     "id": "770125*3",
-     "name": "Blueberry Yogurt",
-     "station": "Nutritional Information",
-     "servings": 1.5,
+     "id": "770123*3",
+     "name": "Strawberry Yogurt",
+     "station": "Salad Bar",
+     "servings": 2.0,
      "serving": "3 OZW",
-     "portion": "4.5 oz (1.5 x 3 OZW)",
+     "portion": "6 oz (2 x 3 OZW)",
      "tags": [
-      "NG",
-      "M"
+      "M",
+      "VT"
      ],
      "dessert": false,
-     "kcal": 126.0,
-     "protein": 4.8,
-     "carbs": 23.4,
-     "fat": 1.5,
+     "kcal": 168.0,
+     "protein": 6.4,
+     "carbs": 32.0,
+     "fat": 1.6,
      "fiber": 0.0,
-     "sodium": 84.0,
-     "sat_fat": 0.9,
-     "added_sugar": 19.8,
+     "sodium": 112.0,
+     "sat_fat": 1.2,
+     "added_sugar": 20.8,
      "produce_g": 0.0
     },
     {
@@ -118,25 +118,25 @@
      "produce_g": 0.0
     },
     {
-     "id": "770123*3",
-     "name": "Strawberry Yogurt",
-     "station": "Salad Bar",
-     "servings": 2.0,
+     "id": "770125*3",
+     "name": "Blueberry Yogurt",
+     "station": "Nutritional Information",
+     "servings": 1.5,
      "serving": "3 OZW",
-     "portion": "6 oz (2 x 3 OZW)",
+     "portion": "4.5 oz (1.5 x 3 OZW)",
      "tags": [
-      "M",
-      "VT"
+      "NG",
+      "M"
      ],
      "dessert": false,
-     "kcal": 168.0,
-     "protein": 6.4,
-     "carbs": 32.0,
-     "fat": 1.6,
+     "kcal": 126.0,
+     "protein": 4.8,
+     "carbs": 23.4,
+     "fat": 1.5,
      "fiber": 0.0,
-     "sodium": 112.0,
-     "sat_fat": 1.2,
-     "added_sugar": 20.8,
+     "sodium": 84.0,
+     "sat_fat": 0.9,
+     "added_sugar": 19.8,
      "produce_g": 0.0
     }
    ],
@@ -163,27 +163,25 @@
    },
    "items": [
     {
-     "id": "775579*3",
-     "name": "Vanilla Pudding",
-     "station": "Nutritional Information",
-     "servings": 1.0,
+     "id": "770123*3",
+     "name": "Strawberry Yogurt",
+     "station": "Salad Bar",
+     "servings": 2.0,
      "serving": "3 OZW",
-     "portion": "3 oz",
+     "portion": "6 oz (2 x 3 OZW)",
      "tags": [
-      "NG",
       "M",
-      "S",
       "VT"
      ],
-     "dessert": true,
-     "kcal": 131.0,
-     "protein": 1.4,
-     "carbs": 17.9,
-     "fat": 6.2,
+     "dessert": false,
+     "kcal": 168.0,
+     "protein": 6.4,
+     "carbs": 32.0,
+     "fat": 1.6,
      "fiber": 0.0,
-     "sodium": 123.7,
-     "sat_fat": 1.0,
-     "added_sugar": 9.6,
+     "sodium": 112.0,
+     "sat_fat": 1.2,
+     "added_sugar": 20.8,
      "produce_g": 0.0
     },
     {
@@ -206,28 +204,6 @@
      "sodium": 1093.6,
      "sat_fat": 2.0,
      "added_sugar": 0.0,
-     "produce_g": 0.0
-    },
-    {
-     "id": "770123*3",
-     "name": "Strawberry Yogurt",
-     "station": "Salad Bar",
-     "servings": 2.0,
-     "serving": "3 OZW",
-     "portion": "6 oz (2 x 3 OZW)",
-     "tags": [
-      "M",
-      "VT"
-     ],
-     "dessert": false,
-     "kcal": 168.0,
-     "protein": 6.4,
-     "carbs": 32.0,
-     "fat": 1.6,
-     "fiber": 0.0,
-     "sodium": 112.0,
-     "sat_fat": 1.2,
-     "added_sugar": 20.8,
      "produce_g": 0.0
     },
     {
@@ -295,6 +271,30 @@
      "sodium": 112.0,
      "sat_fat": 1.2,
      "added_sugar": 26.4,
+     "produce_g": 0.0
+    },
+    {
+     "id": "775579*3",
+     "name": "Vanilla Pudding",
+     "station": "Nutritional Information",
+     "servings": 1.0,
+     "serving": "3 OZW",
+     "portion": "3 oz",
+     "tags": [
+      "NG",
+      "M",
+      "S",
+      "VT"
+     ],
+     "dessert": true,
+     "kcal": 131.0,
+     "protein": 1.4,
+     "carbs": 17.9,
+     "fat": 6.2,
+     "fiber": 0.0,
+     "sodium": 123.7,
+     "sat_fat": 1.0,
+     "added_sugar": 9.6,
      "produce_g": 0.0
     }
    ],
